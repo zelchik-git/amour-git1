@@ -1,0 +1,30 @@
+{
+  "candidate": {
+    "name": "Candidate",
+    "primary_specialization": "Character & Creature Concept Art",
+    "secondary_skills": ["Props & Hard-surface", "Environment thumbnails", "2D UI Assets"],
+    "seniority_level": "Mid-level",
+    "location": "Canada",
+    "work_authorization": ["Canada Citizen / Permanent Resident / Open Permit", "Worldwide Remote / Contract B2B"],
+    "preferred_work_modes": ["Remote", "Hybrid"],
+    "software_pipeline": ["Adobe Photoshop", "Blender (3D blockout)", "ZBrush", "Turnaround sheets", "Silhouette iteration"],
+    "target_industries": ["Video Games (AAA / AA / Indie)", "Animation", "Film / VFX", "Tabletop / TCG"],
+    "portfolio_url": "https://www.artstation.com/your-portfolio",
+    "linkedin_url": "https://www.linkedin.com/in/your-profile",
+    "email": "artist@example.com"
+  },
+  "rubric_weights": {
+    "artistic_specialization": 0.30,
+    "software_pipeline": 0.25,
+    "seniority_fit": 0.15,
+    "location_authorization": 0.20,
+    "project_studio_fit": 0.10
+  },
+  "ats_screening_defaults": {
+    "notice_period": "Immediate / 2 weeks",
+    "canadian_work_authorization": "Yes, legally authorized to work in Canada without sponsorship",
+    "remote_availability": "Yes, fully set up with professional home workstation, calibrated displays, and high-speed fiber internet",
+    "relocation_willingness": "Open to discussion for Canadian hubs (Montreal, Vancouver, Toronto)",
+    "nda_clearance": "Yes, standard NDA compliant"
+  }
+}

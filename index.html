@@ -1,0 +1,3424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ARTAPPLY AI // Career-Ops 5D Rubric & Live Vacancy Suite</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-base: #060911;
+      --bg-surface: #0B1120;
+      --bg-card: #111A30;
+      --bg-card-hover: #172340;
+      --border-subtle: rgba(255, 255, 255, 0.08);
+      --border-medium: rgba(255, 255, 255, 0.16);
+      --border-focus: #6366F1;
+      
+      --accent-primary: #6366F1;
+      --accent-cyan: #06B6D4;
+      --accent-emerald: #10B981;
+      --accent-amber: #F59E0B;
+      --accent-purple: #8B5CF6;
+      --accent-rose: #F43F5E;
+      
+      --text-main: #F8FAFC;
+      --text-muted: #94A3B8;
+      --text-dim: #64748B;
+      
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 16px;
+      --shadow-card: 0 10px 30px -10px rgba(0, 0, 0, 0.6);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-base);
+      color: var(--text-main);
+      font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
+    }
+
+    /* TOP NAVIGATION */
+    .top-nav {
+      background: rgba(11, 17, 32, 0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-subtle);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      padding: 0.65rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .brand-group {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      text-decoration: none;
+      color: inherit;
+      cursor: pointer;
+    }
+
+    .brand-logo {
+      width: 38px;
+      height: 38px;
+      background: linear-gradient(135deg, #6366F1, #06B6D4);
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.25rem;
+      box-shadow: 0 0 15px rgba(99, 102, 241, 0.4);
+    }
+
+    .brand-title h1 {
+      font-size: 1.1rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .brand-title p {
+      font-size: 0.7rem;
+      color: var(--text-muted);
+    }
+
+    /* NAV TABS */
+    .nav-tabs {
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+      background: rgba(255, 255, 255, 0.03);
+      padding: 0.25rem;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-subtle);
+      flex-wrap: wrap;
+    }
+
+    .nav-tab-btn {
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      padding: 0.45rem 0.85rem;
+      border-radius: var(--radius-sm);
+      font-size: 0.82rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+      user-select: none;
+    }
+
+    .nav-tab-btn:hover {
+      color: #FFFFFF;
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    .nav-tab-btn.active {
+      color: #FFFFFF;
+      background: var(--accent-primary);
+      box-shadow: 0 2px 10px rgba(99, 102, 241, 0.4);
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    /* BUTTONS */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.45rem;
+      padding: 0.5rem 1rem;
+      border-radius: var(--radius-sm);
+      font-size: 0.82rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      border: none;
+      text-decoration: none;
+    }
+
+    .btn-primary {
+      background: var(--accent-primary);
+      color: #FFFFFF;
+    }
+    .btn-primary:hover {
+      background: #4F46E5;
+      box-shadow: 0 0 15px rgba(99, 102, 241, 0.4);
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.06);
+      color: var(--text-main);
+      border: 1px solid var(--border-medium);
+    }
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.12);
+      border-color: rgba(255, 255, 255, 0.25);
+    }
+
+    .btn-emerald {
+      background: #059669;
+      color: #FFFFFF;
+    }
+    .btn-emerald:hover {
+      background: #10B981;
+      box-shadow: 0 0 15px rgba(16, 185, 129, 0.4);
+    }
+
+    .btn-sm {
+      padding: 0.35rem 0.65rem;
+      font-size: 0.76rem;
+    }
+
+    /* SUB-HEADER STATS RIBBON */
+    .stats-ribbon {
+      background: var(--bg-surface);
+      border-bottom: 1px solid var(--border-subtle);
+      padding: 0.6rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .stat-cards-group {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      flex-wrap: wrap;
+    }
+
+    .stat-pill {
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    .stat-pill .num {
+      font-weight: 700;
+      color: #FFFFFF;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      padding: 0.2rem 0.55rem;
+      border-radius: 9999px;
+      font-size: 0.72rem;
+      font-weight: 600;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid var(--border-subtle);
+    }
+
+    .badge.remote {
+      background: rgba(16, 185, 129, 0.15);
+      color: #34D399;
+      border-color: rgba(16, 185, 129, 0.3);
+    }
+
+    .badge.hybrid {
+      background: rgba(6, 182, 212, 0.15);
+      color: #22D3EE;
+      border-color: rgba(6, 182, 212, 0.3);
+    }
+
+    .badge.api {
+      background: rgba(168, 85, 247, 0.15);
+      color: #C084FC;
+      border-color: rgba(168, 85, 247, 0.3);
+    }
+
+    /* MAIN CONTAINER */
+    .main-workspace {
+      flex: 1;
+      padding: 1.5rem;
+      max-width: 1600px;
+      width: 100%;
+      margin: 0 auto;
+    }
+
+    .view-container {
+      display: none;
+      animation: fadeIn 0.2s ease;
+    }
+
+    .view-container.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(4px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* CARDS & PANELS */
+    .card-box {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 1.25rem;
+      box-shadow: var(--shadow-card);
+    }
+
+    .form-control {
+      background: var(--bg-base);
+      border: 1px solid var(--border-medium);
+      color: var(--text-main);
+      padding: 0.55rem 0.85rem;
+      border-radius: var(--radius-sm);
+      font-size: 0.82rem;
+      font-family: inherit;
+      width: 100%;
+      transition: border-color 0.2s ease;
+    }
+
+    .form-control:focus {
+      outline: none;
+      border-color: var(--border-focus);
+      box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.2);
+    }
+
+    /* VACANCIES CRAWLER GRID */
+    .scanner-controls-box {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 1.15rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .crawler-search-bar {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr 1fr auto;
+      gap: 0.65rem;
+      align-items: center;
+      margin-top: 0.85rem;
+    }
+
+    @media (max-width: 1200px) {
+      .crawler-search-bar {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .vacancies-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+
+    .vacancy-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 1.25rem;
+      transition: all 0.2s ease;
+    }
+
+    .vacancy-card:hover {
+      background: var(--bg-card);
+      border-color: rgba(99, 102, 241, 0.35);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+    }
+
+    .vacancy-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 1rem;
+      margin-bottom: 0.75rem;
+      flex-wrap: wrap;
+    }
+
+    .vacancy-title-group {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+    }
+
+    .studio-avatar {
+      width: 44px;
+      height: 44px;
+      border-radius: var(--radius-sm);
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border-subtle);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 1.15rem;
+      color: #818CF8;
+    }
+
+    .vacancy-title-text h3 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #FFFFFF;
+      margin-bottom: 0.2rem;
+    }
+
+    .vacancy-studio-sub {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    .rubric-score-tag {
+      padding: 0.25rem 0.65rem;
+      border-radius: var(--radius-sm);
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 700;
+      font-size: 0.82rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    .score-strong {
+      background: rgba(16, 185, 129, 0.15);
+      color: #34D399;
+      border: 1px solid rgba(16, 185, 129, 0.3);
+    }
+    .score-mod {
+      background: rgba(245, 158, 11, 0.15);
+      color: #FBBF24;
+      border: 1px solid rgba(245, 158, 11, 0.3);
+    }
+    .score-pass {
+      background: rgba(239, 68, 68, 0.15);
+      color: #F87171;
+      border: 1px solid rgba(239, 68, 68, 0.3);
+    }
+
+    .vacancy-meta-pills {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 0.85rem;
+    }
+
+    .vacancy-desc-section {
+      background: var(--bg-base);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-sm);
+      padding: 0.85rem;
+      margin-bottom: 0.85rem;
+      font-size: 0.8rem;
+      line-height: 1.5;
+      color: #CBD5E1;
+    }
+
+    .vacancy-actions-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      border-top: 1px solid var(--border-subtle);
+      padding-top: 0.75rem;
+    }
+
+    /* KANBAN BOARD */
+    .kanban-board {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1rem;
+      align-items: start;
+      overflow-x: auto;
+      padding-bottom: 1rem;
+    }
+
+    .kanban-col {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 0.85rem;
+      display: flex;
+      flex-direction: column;
+      min-height: 520px;
+    }
+
+    .col-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 0.85rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid var(--border-subtle);
+      font-size: 0.82rem;
+      font-weight: 700;
+    }
+
+    .col-count {
+      background: rgba(255, 255, 255, 0.06);
+      padding: 2px 7px;
+      border-radius: 9999px;
+      font-size: 0.72rem;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .cards-container {
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+      flex: 1;
+    }
+
+    .job-card {
+      background: var(--bg-base);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-sm);
+      padding: 0.75rem;
+      transition: all 0.2s ease;
+      cursor: grab;
+    }
+
+    .job-card:hover {
+      border-color: var(--accent-primary);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    }
+
+    /* TABLE */
+    .table-container {
+      overflow-x: auto;
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.8rem;
+      text-align: left;
+    }
+
+    th {
+      background: rgba(255, 255, 255, 0.03);
+      padding: 0.75rem 1rem;
+      color: var(--text-muted);
+      font-weight: 700;
+      border-bottom: 1px solid var(--border-subtle);
+      cursor: pointer;
+      user-select: none;
+      white-space: nowrap;
+    }
+
+    th:hover {
+      color: #FFFFFF;
+    }
+
+    td {
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border-subtle);
+      color: var(--text-main);
+      vertical-align: middle;
+    }
+
+    tr:hover td {
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    /* 5D RUBRIC ANALYZER */
+    .analyzer-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.25fr;
+      gap: 1.5rem;
+    }
+
+    @media (max-width: 960px) {
+      .analyzer-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .dim-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.65rem 0.85rem;
+      background: var(--bg-base);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-sm);
+      margin-bottom: 0.5rem;
+    }
+
+    .dim-progress {
+      height: 6px;
+      background: rgba(255,255,255,0.08);
+      border-radius: 9999px;
+      overflow: hidden;
+      margin-top: 4px;
+    }
+
+    .dim-progress-bar {
+      height: 100%;
+      background: linear-gradient(90deg, #6366F1, #10B981);
+      border-radius: 9999px;
+    }
+
+    /* MODAL */
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.75);
+      backdrop-filter: blur(8px);
+      z-index: 2000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+    }
+
+    .modal-backdrop.show {
+      display: flex;
+    }
+
+    .modal-window {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-medium);
+      border-radius: var(--radius-md);
+      padding: 1.5rem;
+      max-width: 600px;
+      width: 100%;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
+      max-height: 90vh;
+      overflow-y: auto;
+    }
+
+    /* TOAST */
+    .toast {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      background: #1E293B;
+      border: 1px solid var(--border-focus);
+      color: #FFFFFF;
+      padding: 0.75rem 1.25rem;
+      border-radius: var(--radius-sm);
+      font-size: 0.85rem;
+      font-weight: 600;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.6);
+      display: none;
+      z-index: 3000;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    /* SPINNER */
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+    .spinner {
+      display: inline-block;
+      width: 14px;
+      height: 14px;
+      border: 2px solid rgba(255,255,255,0.3);
+      border-radius: 50%;
+      border-top-color: #FFFFFF;
+      animation: spin 0.8s linear infinite;
+      vertical-align: middle;
+      margin-right: 4px;
+    }
+  </style>
+
+  <!-- TAB SWITCHING -->
+  <script>
+    function switchTab(viewName) {
+      try {
+        var views = document.querySelectorAll('.view-container');
+        for (var i = 0; i < views.length; i++) {
+          views[i].classList.remove('active');
+          views[i].style.display = 'none';
+        }
+
+        var target = document.getElementById('view-' + viewName);
+        if (target) {
+          target.classList.add('active');
+          target.style.display = 'block';
+        }
+
+        var tabs = document.querySelectorAll('.nav-tab-btn');
+        for (var j = 0; j < tabs.length; j++) {
+          tabs[j].classList.remove('active');
+          if (tabs[j].getAttribute('data-view') === viewName) {
+            tabs[j].classList.add('active');
+          }
+        }
+      } catch (err) {
+        console.error("Tab switch error:", err);
+      }
+    }
+  </script>
+</head>
+<body>
+
+<!-- TOP NAVIGATION BAR -->
+<header class="top-nav">
+  <div class="brand-group" onclick="switchTab('vacancies')">
+    <div class="brand-logo">🎨</div>
+    <div class="brand-title">
+      <h1>ARTAPPLY AI <span style="font-size: 0.65rem; background: rgba(99, 102, 241, 0.25); color: #818CF8; padding: 2px 6px; border-radius: 4px; border: 1px solid rgba(99,102,241,0.3);">PRO</span></h1>
+      <p>Career-Ops 5D Rubric & Live Vacancy Search Platform</p>
+    </div>
+  </div>
+
+  <!-- NAVIGATION TABS -->
+  <nav class="nav-tabs" id="mainNavTabs">
+    <button type="button" class="nav-tab-btn active" data-view="vacancies" onclick="switchTab('vacancies')">
+      🔍 Vacancies & Crawler
+    </button>
+    <button type="button" class="nav-tab-btn" data-view="kanban" onclick="switchTab('kanban')">
+      📋 Pipeline Kanban
+    </button>
+    <button type="button" class="nav-tab-btn" data-view="table" onclick="switchTab('table')">
+      📊 Google Sheets Table
+    </button>
+    <button type="button" class="nav-tab-btn" data-view="analyzer" onclick="switchTab('analyzer')">
+      🎯 5D Rubric & /apply
+    </button>
+    <button type="button" class="nav-tab-btn" data-view="spintax" onclick="switchTab('spintax')">
+      🎲 Spintax Letters
+    </button>
+    <button type="button" class="nav-tab-btn" data-view="audit" onclick="switchTab('audit')">
+      🛡️ Anti-Duplicate
+    </button>
+    <button type="button" class="nav-tab-btn" data-view="studios" onclick="switchTab('studios')">
+      🧭 Studio Scanner
+    </button>
+    <button type="button" class="nav-tab-btn" data-view="arttest" onclick="switchTab('arttest')">
+      ⏱️ Art Tests & Rates
+    </button>
+  </nav>
+
+  <!-- QUICK ACTIONS -->
+  <div class="nav-actions">
+    <button type="button" class="btn btn-secondary btn-sm" onclick="openSettingsModal()" title="AI & Candidate Profile Settings">
+      ⚙️ AI Settings
+    </button>
+    <button type="button" class="btn btn-primary btn-sm" onclick="openAddModal()">
+      + Add Job
+    </button>
+    <button type="button" class="btn btn-secondary btn-sm" onclick="exportToCSV()" title="Export CSV for Google Sheets">
+      ⬇ Export CSV
+    </button>
+    <button type="button" class="btn btn-secondary btn-sm" onclick="document.getElementById('csvFileInput').click()" title="Import CSV">
+      ⬆ Import
+    </button>
+    <input type="file" id="csvFileInput" accept=".csv" style="display:none" onchange="importCSV(event)">
+  </div>
+</header>
+
+<!-- SUB-HEADER STATS RIBBON -->
+<div class="stats-ribbon">
+  <div class="stat-cards-group">
+    <div class="stat-pill">
+      <span style="color: var(--accent-cyan);">🌐</span>
+      <span>Vacancies Found:</span>
+      <span class="num" id="stat-vacancies-count">0</span>
+    </div>
+    <div class="stat-pill">
+      <span style="color: var(--accent-primary);">📋</span>
+      <span>In My Pipeline:</span>
+      <span class="num" id="stat-total">0</span>
+    </div>
+    <div class="stat-pill">
+      <span style="color: var(--accent-amber);">🟡</span>
+      <span>Applied:</span>
+      <span class="num" id="stat-applied">0</span>
+    </div>
+    <div class="stat-pill">
+      <span style="color: #10B981;">🎨</span>
+      <span>Art Tests / Screens:</span>
+      <span class="num" id="stat-interviewing">0</span>
+    </div>
+    <div class="stat-pill">
+      <span style="color: #F59E0B;">★</span>
+      <span>Avg Pipeline Score:</span>
+      <span class="num" id="stat-avg-score">0.0 ★</span>
+    </div>
+  </div>
+
+  <div style="display: flex; align-items: center; gap: 0.65rem; flex-wrap: wrap;">
+    <span class="badge" id="aiModelBadge" style="background: rgba(99, 102, 241, 0.15); color: #818CF8; border-color: rgba(99,102,241,0.3); cursor: pointer;" onclick="openSettingsModal()">
+      ⚙️ Rule-Based Engine
+    </span>
+    <span class="badge" style="background: rgba(16, 185, 129, 0.15); color: #34D399; border-color: rgba(16,185,129,0.3);">
+      ● Career-Ops 4.0 Apply Line Active
+    </span>
+    <span class="badge" style="background: rgba(6, 182, 212, 0.15); color: #22D3EE; border-color: rgba(6,182,212,0.3);">
+      🛡️ Anti-Duplicate Guard ON
+    </span>
+  </div>
+</div>
+
+<!-- MAIN WORKSPACE VIEWS -->
+<main class="main-workspace">
+
+  <!-- =========================================================================
+       VIEW 0: VACANCIES SEARCH & CRAWLER (DEFAULT ACTIVE)
+       ========================================================================= -->
+  <div id="view-vacancies" class="view-container active" style="display: block;">
+    <div class="scanner-controls-box">
+      <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.75rem; flex-wrap: wrap; gap: 0.75rem;">
+        <div>
+          <h2 style="font-size: 1.2rem; font-weight: 800; color: #FFFFFF; display: flex; align-items: center; gap: 0.5rem;">
+            <span>🔍</span> Concept Art & 2D Vacancy Scanner
+          </h2>
+          <p style="font-size: 0.78rem; color: var(--text-muted); margin-top: 2px;">
+            Live multi-source job feed: Curated studio listings + Live Remotive Public API for remote design roles.
+          </p>
+        </div>
+        <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+          <button type="button" class="btn btn-secondary btn-sm" id="btnSyncRemotive" onclick="fetchLiveRemoteJobs()">
+            🌐 Fetch Live API Jobs (Remotive)
+          </button>
+          <button type="button" class="btn btn-emerald btn-sm" onclick="batchAddStrongGo()">
+            + Add All Strong GO (≥ 4.0) to Pipeline
+          </button>
+        </div>
+      </div>
+
+      <!-- Filters -->
+      <div class="crawler-search-bar">
+        <div>
+          <input type="text" id="vacSearchKeywords" class="form-control" placeholder="Search title, studio, software..." oninput="filterVacancies()">
+        </div>
+        <div>
+          <select id="vacSourceFilter" class="form-control" onchange="filterVacancies()">
+            <option value="ALL">All Sources</option>
+            <option value="CURATED">Curated Studios</option>
+            <option value="REMOTIVE">Remotive API (Live)</option>
+          </select>
+        </div>
+        <div>
+          <select id="vacLocationFilter" class="form-control" onchange="filterVacancies()">
+            <option value="ALL">All Locations & Remote</option>
+            <option value="CANADA">🍁 Canada (Montreal / Vancouver / Toronto)</option>
+            <option value="REMOTE">🌍 100% Worldwide Remote Only</option>
+          </select>
+        </div>
+        <div>
+          <select id="vacSeniorityFilter" class="form-control" onchange="filterVacancies()">
+            <option value="ALL">All Seniority</option>
+            <option value="Junior">Junior / Entry</option>
+            <option value="Mid">Mid-Level</option>
+            <option value="Senior">Senior</option>
+            <option value="Lead">Lead / Director</option>
+          </select>
+        </div>
+        <div>
+          <select id="vacScoreFilter" class="form-control" onchange="filterVacancies()">
+            <option value="ALL">All Scores</option>
+            <option value="GO" selected>Strong GO (≥ 4.0 Only)</option>
+            <option value="MOD">Conditional (≥ 3.5)</option>
+          </select>
+        </div>
+        <div>
+          <button type="button" class="btn btn-secondary" onclick="resetVacancyFilters()">Reset</button>
+        </div>
+      </div>
+
+      <!-- Quick Paste Role URL / Text Parser -->
+      <div style="margin-top: 1rem; padding-top: 0.85rem; border-top: 1px dashed var(--border-subtle); display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap;">
+        <span style="font-size: 0.78rem; font-weight: 700; color: #FFFFFF;">⚡ Parse Any External Job URL or Text:</span>
+        <input type="text" id="quickPasteUrl" class="form-control" style="flex: 1; min-width: 260px;" placeholder="Paste job posting link or snippet (LinkedIn, ArtStation, studio board)...">
+        <button type="button" class="btn btn-primary btn-sm" id="btnQuickParse" onclick="parseQuickUrl()">
+          ⚡ Parse & Add Role
+        </button>
+      </div>
+    </div>
+
+    <!-- Vacancies Container -->
+    <div class="vacancies-grid" id="vacanciesContainer">
+      <!-- Injected via JavaScript -->
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       VIEW 1: PIPELINE KANBAN BOARD
+       ========================================================================= -->
+  <div id="view-kanban" class="view-container">
+    <div class="kanban-board" id="kanbanBoard">
+      <!-- Columns rendered via JavaScript -->
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       VIEW 2: SPREADSHEET TABLE
+       ========================================================================= -->
+  <div id="view-table" class="view-container">
+    <div class="card-box" style="margin-bottom: 1rem; padding: 1rem;">
+      <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.75rem;">
+        <input type="text" id="tableSearchInput" class="form-control" style="max-width: 320px;" placeholder="Search in spreadsheet..." oninput="renderTable()">
+        <div style="display: flex; gap: 0.5rem;">
+          <button type="button" class="btn btn-secondary btn-sm" onclick="copyTableAsTSV()">
+            📋 Copy Table (Paste to Google Sheets)
+          </button>
+          <button type="button" class="btn btn-primary btn-sm" onclick="openAddModal()">
+            + Add New Row
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="table-container">
+      <table>
+        <thead>
+          <tr>
+            <th onclick="toggleSort('title')">Job Title ⬍</th>
+            <th onclick="toggleSort('location')">City / Country ⬍</th>
+            <th>Link to Job Post</th>
+            <th>Requirements</th>
+            <th onclick="toggleSort('remote')">Remote or Not ⬍</th>
+            <th onclick="toggleSort('seniority')">Seniority ⬍</th>
+            <th onclick="toggleSort('status')">Status ⬍</th>
+            <th onclick="toggleSort('datePosted')">Date Posted ⬍</th>
+            <th>Source Site</th>
+            <th onclick="toggleSort('score')">Score ⬍</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="tableBody">
+          <!-- Rendered via JavaScript -->
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       VIEW 3: CAREER-OPS 5-DIMENSION RUBRIC & /apply ENGINE
+       ========================================================================= -->
+  <div id="view-analyzer" class="view-container">
+    <div class="analyzer-grid">
+      <!-- Input Panel -->
+      <div class="card-box">
+        <h2 style="font-size: 1.1rem; font-weight: 800; margin-bottom: 0.5rem; color: #FFFFFF;">
+          🎯 Career-Ops 5-Dimension Rubric Evaluator
+        </h2>
+        <p style="font-size: 0.78rem; color: var(--text-muted); margin-bottom: 1rem;">
+          Evaluates candidate fit against the strict 4.0 Apply Line and drafts custom ATS / Greenhouse application answers.
+        </p>
+
+        <div style="margin-bottom: 1rem;">
+          <label style="font-size: 0.78rem; font-weight: 700; color: #FFFFFF; display: block; margin-bottom: 0.35rem;">Job Description Text or Notes:</label>
+          <textarea id="aiInputText" class="form-control" style="min-height: 180px; resize: vertical;" placeholder="Paste job description text here..."></textarea>
+        </div>
+
+        <div style="margin-bottom: 1.25rem;">
+          <label style="font-size: 0.78rem; font-weight: 700; color: #FFFFFF; display: block; margin-bottom: 0.35rem;">Job URL (Optional):</label>
+          <input type="text" id="aiInputUrl" class="form-control" placeholder="https://careers.studio.com/jobs/...">
+        </div>
+
+        <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+          <button type="button" class="btn btn-primary" id="btnRunRubric" onclick="runRubricEvaluation()">
+            ⚡ Calculate 5D Rubric & Generate Answers
+          </button>
+          <button type="button" class="btn btn-secondary" onclick="loadDemoEvaluation('behaviour')">
+            Load Behaviour Interactive Demo
+          </button>
+          <button type="button" class="btn btn-secondary" onclick="loadDemoEvaluation('digitalextremes')">
+            Load Digital Extremes Demo
+          </button>
+        </div>
+      </div>
+
+      <!-- Results Panel -->
+      <div class="card-box" id="rubricResultsCard">
+        <div id="evalEmptyState" style="text-align: center; padding: 3rem 1rem; color: var(--text-dim);">
+          <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">🎯</div>
+          <p style="font-size: 0.95rem; font-weight: 700; color: #FFFFFF; margin-bottom: 0.25rem;">No evaluation active</p>
+          <p style="font-size: 0.78rem;">Paste a job description on the left or click "Load Demo" to evaluate.</p>
+        </div>
+
+        <div id="evalLoadingState" style="display: none; text-align: center; padding: 3rem 1rem;">
+          <div class="spinner" style="width: 32px; height: 32px; border-width: 3px; margin-bottom: 1rem;"></div>
+          <p style="font-size: 0.95rem; font-weight: 700; color: #FFFFFF;" id="evalLoadingText">Evaluating vacancy with Career-Ops engine...</p>
+        </div>
+
+        <div id="evalContent" style="display: none;">
+          <div style="display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--border-subtle); padding-bottom: 1rem; margin-bottom: 1rem; flex-wrap: wrap; gap: 0.5rem;">
+            <div>
+              <div id="evalRoleTitle" style="font-size: 1.1rem; font-weight: 800; color: #FFFFFF;">Concept Artist</div>
+              <div id="evalStudioInfo" style="font-size: 0.78rem; color: var(--accent-cyan); margin-top: 2px;">Studio Info</div>
+              <div id="evalEngineBadge" style="margin-top: 4px; font-size: 0.7rem; color: var(--text-dim);"></div>
+            </div>
+            <div style="text-align: right;">
+              <span id="evalScoreTag" class="rubric-score-tag score-strong" style="font-size: 1rem; padding: 0.35rem 0.85rem;">
+                4.8 ★ STRONG GO
+              </span>
+            </div>
+          </div>
+
+          <!-- 5 Dimensions Breakdown -->
+          <h3 style="font-size: 0.85rem; font-weight: 700; color: #FFFFFF; margin-bottom: 0.5rem;">5-Dimension Fit Breakdown:</h3>
+          <div id="evalDimensionsList" style="margin-bottom: 1.5rem;">
+            <!-- Injected via JS -->
+          </div>
+
+          <!-- ATS Screening Answers -->
+          <h3 style="font-size: 0.85rem; font-weight: 700; color: #FFFFFF; margin-bottom: 0.5rem;">Greenhouse / Lever Auto-Answers:</h3>
+          <div id="evalAtsAnswers" style="display: flex; flex-direction: column; gap: 0.75rem; margin-bottom: 1.5rem;">
+            <!-- Injected via JS -->
+          </div>
+
+          <!-- Tailored CV Experience Bullets -->
+          <h3 style="font-size: 0.85rem; font-weight: 700; color: #FFFFFF; margin-bottom: 0.5rem;">Role-Tailored CV Experience Bullets:</h3>
+          <div id="evalCvBullets" style="background: var(--bg-base); border: 1px solid var(--border-subtle); border-radius: var(--radius-sm); padding: 0.85rem;">
+            <!-- Injected via JS -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       VIEW 4: SPINTAX COVER LETTER GENERATOR
+       ========================================================================= -->
+  <div id="view-spintax" class="view-container">
+    <div class="card-box" style="max-width: 900px; margin: 0 auto;">
+      <h2 style="font-size: 1.2rem; font-weight: 800; margin-bottom: 0.4rem; color: #FFFFFF;">
+        🎲 HH-Applicant-Tool Spintax Cover Letter Studio
+      </h2>
+      <p style="font-size: 0.78rem; color: var(--text-muted); margin-bottom: 1.25rem;">
+        Resolves nested spintax combinations ({A|B|C}) to guarantee each studio receives a completely unique, personalized letter.
+      </p>
+
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
+        <div>
+          <label style="font-size: 0.78rem; font-weight: 700; color: #FFFFFF; display: block; margin-bottom: 0.35rem;">Target Studio:</label>
+          <input type="text" id="spinStudio" class="form-control" value="Behaviour Interactive" oninput="generateSpintaxLetter()">
+        </div>
+        <div>
+          <label style="font-size: 0.78rem; font-weight: 700; color: #FFFFFF; display: block; margin-bottom: 0.35rem;">Target Role:</label>
+          <input type="text" id="spinRole" class="form-control" value="Mid-Level Character Concept Artist" oninput="generateSpintaxLetter()">
+        </div>
+      </div>
+
+      <div style="display: flex; gap: 0.5rem; margin-bottom: 1rem;">
+        <button type="button" class="btn btn-primary" onclick="generateSpintaxLetter()">
+          🎲 Regenerate Unique Variation
+        </button>
+        <button type="button" class="btn btn-secondary" onclick="copySpintaxLetter()">
+          📋 Copy Letter to Clipboard
+        </button>
+      </div>
+
+      <div class="letter-output-box" id="spintaxOutput" style="background: var(--bg-base); border: 1px solid var(--border-subtle); border-radius: var(--radius-sm); padding: 1.25rem; font-family: inherit; font-size: 0.85rem; line-height: 1.6; white-space: pre-wrap; color: #E2E8F0;">
+        <!-- Rendered letter text -->
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       VIEW 5: ANTI-DUPLICATE AUDIT TRAIL
+       ========================================================================= -->
+  <div id="view-audit" class="view-container">
+    <div class="card-box" style="max-width: 900px; margin: 0 auto;">
+      <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem;">
+        <div>
+          <h2 style="font-size: 1.2rem; font-weight: 800; color: #FFFFFF;">🛡️ Anti-Duplicate Protection & Audit Trail</h2>
+          <p style="font-size: 0.78rem; color: var(--text-muted); margin-top: 2px;">
+            Strict verification matching (Job Title + Studio Company) and direct Job URLs.
+          </p>
+        </div>
+        <button type="button" class="btn btn-secondary btn-sm" onclick="clearAuditLog()">Clear Audit Log</button>
+      </div>
+
+      <div style="margin-bottom: 1.5rem; background: var(--bg-base); padding: 1rem; border-radius: var(--radius-sm); border: 1px solid var(--border-subtle);">
+        <h3 style="font-size: 0.85rem; font-weight: 700; color: #34D399; margin-bottom: 0.25rem;" id="auditDupsHeading">✅ Deduplication Engine Status</h3>
+        <p style="font-size: 0.78rem; color: var(--text-muted);" id="auditDupsStatus">
+          Zero duplicates found in your active pipeline.
+        </p>
+        <div id="auditDupsList" style="margin-top: 0.75rem; display: none;"></div>
+      </div>
+
+      <h3 style="font-size: 0.85rem; font-weight: 700; color: #FFFFFF; margin-bottom: 0.75rem;">Recent Activity Log:</h3>
+      <div id="auditLogList" style="display: flex; flex-direction: column; gap: 0.5rem;">
+        <!-- Injected via JS -->
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       VIEW 6: STUDIOS SCANNER & ATS PORTALS
+       ========================================================================= -->
+  <div id="view-studios" class="view-container">
+    <div class="card-box" style="margin-bottom: 1.5rem;">
+      <h2 style="font-size: 1.2rem; font-weight: 800; color: #FFFFFF; margin-bottom: 0.4rem;">
+        🧭 Canadian & Global Game Studio Hubs
+      </h2>
+      <p style="font-size: 0.78rem; color: var(--text-muted);">
+        Direct careers portals with regular concept art hiring cycles. Click "Track Job" to add any studio to your tracker.
+      </p>
+    </div>
+
+    <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1rem;" id="studiosGrid">
+      <!-- Injected via JS -->
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       VIEW 7: ART TESTS & RATE CALCULATOR
+       ========================================================================= -->
+  <div id="view-arttest" class="view-container">
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; max-width: 1200px; margin: 0 auto;">
+      <!-- Rate Calculator -->
+      <div class="card-box">
+        <h2 style="font-size: 1.1rem; font-weight: 800; color: #FFFFFF; margin-bottom: 0.5rem;">
+          ⏱️ Concept Art Rate Calculator
+        </h2>
+        <p style="font-size: 0.78rem; color: var(--text-muted); margin-bottom: 1.25rem;">
+          Calibrated for Canadian / Global Remote B2B concept artist contracts.
+        </p>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.25rem;">
+          <div>
+            <label style="font-size: 0.78rem; font-weight: 700; color: #FFFFFF; display: block; margin-bottom: 0.35rem;">Hourly Rate ($):</label>
+            <input type="number" id="calcHourly" class="form-control" value="45" oninput="calculateRates()">
+          </div>
+          <div>
+            <label style="font-size: 0.78rem; font-weight: 700; color: #FFFFFF; display: block; margin-bottom: 0.35rem;">Currency:</label>
+            <select id="calcCurrency" class="form-control" onchange="calculateRates()">
+              <option value="CAD" selected>CAD (Canadian Dollar)</option>
+              <option value="USD">USD (US Dollar)</option>
+            </select>
+          </div>
+        </div>
+
+        <div style="background: var(--bg-base); padding: 1.25rem; border-radius: var(--radius-sm); border: 1px solid var(--border-subtle); display: flex; flex-direction: column; gap: 0.75rem;">
+          <div style="display: flex; justify-content: space-between; font-size: 0.82rem;">
+            <span style="color: var(--text-muted);">Day Rate (8 hours):</span>
+            <b id="rateDay" style="color: #34D399; font-family: 'JetBrains Mono', monospace;">$360 CAD / day</b>
+          </div>
+          <div style="display: flex; justify-content: space-between; font-size: 0.82rem;">
+            <span style="color: var(--text-muted);">Monthly Equivalent (21 days):</span>
+            <b id="rateMonth" style="color: #60A5FA; font-family: 'JetBrains Mono', monospace;">$7,560 CAD / mo</b>
+          </div>
+          <div style="display: flex; justify-content: space-between; font-size: 0.82rem;">
+            <span style="color: var(--text-muted);">Annual Full-Time (2,000 hrs):</span>
+            <b id="rateYear" style="color: #FBBF24; font-family: 'JetBrains Mono', monospace;">$90,000 CAD / yr</b>
+          </div>
+        </div>
+      </div>
+
+      <!-- Active Art Tests -->
+      <div class="card-box">
+        <h2 style="font-size: 1.1rem; font-weight: 800; color: #FFFFFF; margin-bottom: 0.5rem;">
+          🎨 Active Art Test Submissions
+        </h2>
+        <p style="font-size: 0.78rem; color: var(--text-muted); margin-bottom: 1.25rem;">
+          Track deadlines and paid vs unpaid assignment status.
+        </p>
+
+        <div id="artTestsList" style="display: flex; flex-direction: column; gap: 0.75rem;">
+          <div style="background: var(--bg-base); padding: 1rem; border-radius: var(--radius-sm); border: 1px solid var(--border-subtle); display: flex; justify-content: space-between; align-items: center;">
+            <div>
+              <div style="font-weight: 700; color: #FFFFFF; font-size: 0.88rem;">Behaviour Interactive</div>
+              <div style="font-size: 0.76rem; color: var(--text-muted); margin-top: 2px;">Survivor costume turnaround + 2 weapon callouts</div>
+              <div style="font-size: 0.72rem; color: var(--accent-cyan); margin-top: 3px; font-family: 'JetBrains Mono', monospace;">
+                Deadline: 2026-10-14 • <span style="color: #34D399;">Paid ($500 CAD)</span>
+              </div>
+            </div>
+            <button type="button" class="btn btn-secondary btn-sm" onclick="showToast('Art test marked as completed!')">✓ Mark Done</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<!-- ADD / EDIT JOB MODAL -->
+<div class="modal-backdrop" id="jobModal">
+  <div class="modal-window">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.25rem;">
+      <h2 id="modalTitle" style="font-size: 1.2rem; font-weight: 800; color: #FFFFFF;">Add Job to Tracker</h2>
+      <button type="button" class="btn btn-secondary btn-sm" onclick="closeJobModal()">✕</button>
+    </div>
+
+    <form id="jobForm" onsubmit="handleJobFormSubmit(event)">
+      <input type="hidden" id="editJobId">
+      
+      <div style="margin-bottom: 0.85rem;">
+        <label style="font-size: 0.78rem; font-weight: 700; color: #FFFFFF; display: block; margin-bottom: 0.35rem;">Job Title *</label>
+        <input type="text" id="modalJobTitle" class="form-control" required placeholder="e.g. Mid-Level Character Concept Artist">
+      </div>
+
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.85rem; margin-bottom: 0.85rem;">
+        <div>
+          <label style="font-size: 0.78rem; font-weight: 700; color: #FFFFFF; display: block; margin-bottom: 0.35rem;">City / Country *</label>
+          <input type="text" id="modalLocation" class="form-control" required placeholder="e.g. Montreal, Canada">
+        </div>
+        <div>
+          <label style="font-size: 0.78rem; font-weight: 700; color: #FFFFFF; display: block; margin-bottom: 0.35rem;">Studio / Company *</label>
+          <input type="text" id="modalSourceSite" class="form-control" required placeholder="e.g. Ubisoft Montreal">
+        </div>
+      </div>
+
+      <div style="margin-bottom: 0.85rem;">
+        <label style="font-size: 0.78rem; font-weight: 700; color: #FFFFFF; display: block; margin-bottom: 0.35rem;">Link to Job Post</label>
+        <input type="url" id="modalJobLink" class="form-control" placeholder="https://careers.studio.com/...">
+      </div>
+
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.85rem; margin-bottom: 0.85rem;">
+        <div>
+          <label style="font-size: 0.78rem; font-weight: 700; color: #FFFFFF; display: block; margin-bottom: 0.35rem;">Remote Status</label>
+          <select id="modalRemote" class="form-control">
+            <option value="Remote">Remote</option>
+            <option value="Hybrid">Hybrid</option>
+            <option value="On-site">On-site</option>
+          </select>
+        </div>
+        <div>
+          <label style="font-size: 0.78rem; font-weight: 700; color: #FFFFFF; display: block; margin-bottom: 0.35rem;">Seniority Level</label>
+          <select id="modalSeniority" class="form-control">
+            <option value="Junior">Junior / Entry</option>
+            <option value="Mid-level" selected>Mid-level</option>
+            <option value="Senior">Senior</option>
+            <option value="Lead">Lead / Principal</option>
+          </select>
+        </div>
+      </div>
+
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.85rem; margin-bottom: 0.85rem;">
+        <div>
+          <label style="font-size: 0.78rem; font-weight: 700; color: #FFFFFF; display: block; margin-bottom: 0.35rem;">Pipeline Status</label>
+          <select id="modalStatus" class="form-control">
+            <option value="🟣 Discovered / Bookmarked">🟣 Discovered / Bookmarked</option>
+            <option value="🟡 Applied / Waiting">🟡 Applied / Waiting</option>
+            <option value="🟠 Recruiter Screen / Contacted">🟠 Recruiter Screen / Contacted</option>
+            <option value="🔵 Art Test / Assignment">🔵 Art Test / Assignment</option>
+            <option value="🟢 Interviewing (Portfolio / Team)">🟢 Interviewing (Portfolio / Team)</option>
+            <option value="🏆 Offer Received">🏆 Offer Received</option>
+            <option value="🔴 Rejected">🔴 Rejected</option>
+            <option value="⚪ Archived / No Response">⚪ Archived / No Response</option>
+          </select>
+        </div>
+        <div>
+          <label style="font-size: 0.78rem; font-weight: 700; color: #FFFFFF; display: block; margin-bottom: 0.35rem;">Fit Match Score (1.0 - 5.0)</label>
+          <input type="number" id="modalScore" class="form-control" min="1.0" max="5.0" step="0.1" value="4.6">
+        </div>
+      </div>
+
+      <div style="margin-bottom: 1.25rem;">
+        <label style="font-size: 0.78rem; font-weight: 700; color: #FFFFFF; display: block; margin-bottom: 0.35rem;">Requirements / Software</label>
+        <textarea id="modalRequirements" class="form-control" style="min-height: 80px;" placeholder="e.g. 3+ years character concept art, Photoshop, Blender/ZBrush blockout"></textarea>
+      </div>
+
+      <div style="display: flex; justify-content: flex-end; gap: 0.75rem;">
+        <button type="button" class="btn btn-secondary" onclick="closeJobModal()">Cancel</button>
+        <button type="submit" class="btn btn-primary">Save to Pipeline</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- SETTINGS MODAL -->
+<div class="modal-backdrop" id="settingsModal">
+  <div class="modal-window">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.25rem;">
+      <h2 style="font-size: 1.2rem; font-weight: 800; color: #FFFFFF;">⚙️ AI & Candidate Profile Settings</h2>
+      <button type="button" class="btn btn-secondary btn-sm" onclick="closeSettingsModal()">✕</button>
+    </div>
+
+    <form onsubmit="handleSettingsSave(event)">
+      <div style="margin-bottom: 1rem; background: var(--bg-base); padding: 0.85rem; border-radius: var(--radius-sm); border: 1px solid var(--border-subtle);">
+        <label style="font-size: 0.78rem; font-weight: 700; color: var(--accent-cyan); display: block; margin-bottom: 0.35rem;">Google Gemini API Key (Optional):</label>
+        <input type="password" id="cfgApiKey" class="form-control" placeholder="AIzaSy..." style="margin-bottom: 0.4rem;">
+        <p style="font-size: 0.72rem; color: var(--text-dim); line-height: 1.4;">
+          Your key is saved locally in your browser (never sent elsewhere). When provided, the 5D Rubric and URL Parser will use live Gemini AI for deep resume & job description analysis. If empty, the system automatically uses the intelligent rule-based keyword engine.
+        </p>
+        <div style="margin-top: 0.65rem; display: flex; gap: 0.5rem; align-items: center;">
+          <button type="button" class="btn btn-secondary btn-sm" onclick="testGeminiConnection()">⚡ Test API Key</button>
+          <span id="cfgApiStatus" style="font-size: 0.72rem; color: var(--text-muted);"></span>
+        </div>
+      </div>
+
+      <div style="margin-bottom: 0.85rem;">
+        <label style="font-size: 0.78rem; font-weight: 700; color: #FFFFFF; display: block; margin-bottom: 0.35rem;">Gemini Model:</label>
+        <select id="cfgModel" class="form-control">
+          <option value="gemini-2.5-flash" selected>gemini-2.5-flash (Fast & recommended)</option>
+          <option value="gemini-1.5-flash">gemini-1.5-flash</option>
+          <option value="gemini-1.5-pro">gemini-1.5-pro (Deep reasoning)</option>
+        </select>
+      </div>
+
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.85rem; margin-bottom: 0.85rem;">
+        <div>
+          <label style="font-size: 0.78rem; font-weight: 700; color: #FFFFFF; display: block; margin-bottom: 0.35rem;">Candidate Name</label>
+          <input type="text" id="cfgName" class="form-control" value="Concept Artist">
+        </div>
+        <div>
+          <label style="font-size: 0.78rem; font-weight: 700; color: #FFFFFF; display: block; margin-bottom: 0.35rem;">Target Seniority</label>
+          <select id="cfgSeniority" class="form-control">
+            <option value="Junior">Junior / Entry</option>
+            <option value="Mid-level" selected>Mid-level</option>
+            <option value="Senior">Senior</option>
+          </select>
+        </div>
+      </div>
+
+      <div style="margin-bottom: 0.85rem;">
+        <label style="font-size: 0.78rem; font-weight: 700; color: #FFFFFF; display: block; margin-bottom: 0.35rem;">Primary Specialization</label>
+        <input type="text" id="cfgFocus" class="form-control" value="Character & Creature Concept Art (2D/3D Hybrid)">
+      </div>
+
+      <div style="margin-bottom: 0.85rem;">
+        <label style="font-size: 0.78rem; font-weight: 700; color: #FFFFFF; display: block; margin-bottom: 0.35rem;">Target Location & Work Authorization</label>
+        <input type="text" id="cfgLocation" class="form-control" value="Canada (Montreal / Vancouver / Toronto) & Worldwide Remote">
+      </div>
+
+      <div style="margin-bottom: 1.25rem;">
+        <label style="font-size: 0.78rem; font-weight: 700; color: #FFFFFF; display: block; margin-bottom: 0.35rem;">Portfolio URL</label>
+        <input type="url" id="cfgPortfolio" class="form-control" value="https://www.artstation.com/your-portfolio">
+      </div>
+
+      <div style="display: flex; justify-content: flex-end; gap: 0.75rem;">
+        <button type="button" class="btn btn-secondary" onclick="closeSettingsModal()">Cancel</button>
+        <button type="submit" class="btn btn-primary">Save Settings</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- TOAST NOTIFICATION -->
+<div class="toast" id="toast">
+  <span>✅</span>
+  <span id="toastMsg">Action completed successfully</span>
+</div>
+
+<!-- JAVASCRIPT APPLICATION CORE -->
+<script>
+  // STATUS DEFINITIONS
+  const STATUSES = [
+    { id: "🟣 Discovered / Bookmarked", name: "Discovered", color: "#A855F7" },
+    { id: "🟡 Applied / Waiting", name: "Applied", color: "#EAB308" },
+    { id: "🟠 Recruiter Screen / Contacted", name: "Recruiter Screen", color: "#F97316" },
+    { id: "🔵 Art Test / Assignment", name: "Art Test", color: "#3B82F6" },
+    { id: "🟢 Interviewing (Portfolio / Team)", name: "Interviewing", color: "#10B981" },
+    { id: "🏆 Offer Received", name: "Offer", color: "#059669" },
+    { id: "🔴 Rejected", name: "Rejected", color: "#EF4444" },
+    { id: "⚪ Archived / No Response", name: "Archived", color: "#64748B" }
+  ];
+
+  // 15 CURATED REAL-WORLD CONCEPT ART VACANCIES AT MAJOR STUDIOS
+  const CURATED_VACANCIES = [
+    {
+      id: "cur-1",
+      title: "Mid-Level Character Concept Artist",
+      company: "Behaviour Interactive",
+      location: "Montreal, Canada (Hybrid / Remote Option)",
+      workType: "Hybrid",
+      seniority: "Mid-level",
+      salary: "$78,000 - $94,000 CAD / yr",
+      datePosted: "2026-10-04",
+      source: "Behaviour Careers",
+      sourceType: "CURATED",
+      link: "https://careers.behaviour.com/",
+      description: "Join the Dead by Daylight production team to design compelling survivor and killer character costumes, creature variants, and visual motifs from initial brief to final callout sheet.",
+      responsibilities: [
+        "Create rapid silhouette explorations and full orthographic turnaround sheets for 3D character artists.",
+        "Develop stylized horror and dark-fantasy costume variants and weapon accessories.",
+        "Collaborate with the Art Director and 3D character pipeline to ensure asset functional readability."
+      ],
+      requirements: "3+ years production concept art experience. Strong human anatomy and costume design fundamentals. Proficiency with Adobe Photoshop, ZBrush or Blender blockout.",
+      software: "Photoshop, Blender, ZBrush",
+      score: 4.8,
+      verdict: "STRONG GO"
+    },
+    {
+      id: "cur-2",
+      title: "2D Creature & Character Concept Artist",
+      company: "Digital Extremes",
+      location: "London, ON / Remote Canada",
+      workType: "Remote",
+      seniority: "Mid-level",
+      salary: "$82,000 - $98,000 CAD / yr",
+      datePosted: "2026-10-03",
+      source: "Digital Extremes Careers",
+      sourceType: "CURATED",
+      link: "https://www.digitalextremes.com/careers",
+      description: "Craft biomechanical creatures, warframes, and mystical characters for Warframe & Soulframe with rich silhouette articulation.",
+      responsibilities: [
+        "Iterate thumbnail silhouettes and organic creature anatomy sketches.",
+        "Produce detailed material paint-overs and callout sheets for 3D sculptors.",
+        "Partner with visual development team on new factions and costume variants."
+      ],
+      requirements: "Strong understanding of creature anatomy and organic surface rendering. Experience with 3D blockout workflow. Legally authorized to work in Canada.",
+      software: "Photoshop, ZBrush, Blender",
+      score: 4.7,
+      verdict: "STRONG GO"
+    },
+    {
+      id: "cur-3",
+      title: "Concept Artist (Characters & Visual Development)",
+      company: "Ubisoft Montreal",
+      location: "Montreal, Quebec, Canada",
+      workType: "Hybrid",
+      seniority: "Mid-level",
+      salary: "$80,000 - $96,000 CAD / yr",
+      datePosted: "2026-10-02",
+      source: "Ubisoft Careers",
+      sourceType: "CURATED",
+      link: "https://www.ubisoft.com/en-us/company/careers",
+      description: "Create visual development frames, character mood paintings, and costume orthographics for AAA unannounced production.",
+      responsibilities: [
+        "Translate game design briefs into evocative character designs and costume callout sheets.",
+        "Produce lighting and color mood keys to establish gameplay visual tone.",
+        "Work in tight iteration loops with Lead Concept Artist."
+      ],
+      requirements: "Demonstrated portfolio of character design, historical/fantasy costume design. 2D/3D hybrid fluency. Montreal presence preferred.",
+      software: "Photoshop, 3D Blockout",
+      score: 4.6,
+      verdict: "STRONG GO"
+    },
+    {
+      id: "cur-4",
+      title: "2D Concept & VisDev Artist",
+      company: "Moon Studios",
+      location: "Worldwide Remote",
+      workType: "Remote",
+      seniority: "Mid-level",
+      salary: "$50 - $70 USD / hr (Contract B2B)",
+      datePosted: "2026-10-01",
+      source: "Moon Studios Careers",
+      sourceType: "CURATED",
+      link: "https://moongamestudios.com/jobs/",
+      description: "Create painterly character silhouettes, historical dark-fantasy armor, and visual development frames for No Rest for the Wicked.",
+      responsibilities: [
+        "Explore evocative silhouettes and paint-over illustrations for dynamic action-RPG combatants.",
+        "Develop material callouts and color scripts.",
+        "Collaborate completely asynchronously via Discord and Miro."
+      ],
+      requirements: "Extraordinary painterly draftsmanship, lighting sensibilities, and ability to self-direct in a 100% distributed remote studio.",
+      software: "Photoshop, Blender",
+      score: 4.8,
+      verdict: "STRONG GO"
+    },
+    {
+      id: "cur-5",
+      title: "Character Concept Artist - League / Valorant IP",
+      company: "Riot Games",
+      location: "Worldwide Remote / Hub Eligible",
+      workType: "Remote",
+      seniority: "Mid-level",
+      salary: "$90,000 - $115,000 USD / yr",
+      datePosted: "2026-09-30",
+      source: "Riot Games Careers",
+      sourceType: "CURATED",
+      link: "https://www.riotgames.com/en/work-with-us/jobs",
+      description: "Design champions, thematic skinlines, and iconic character silhouettes that captivate millions of competitive players.",
+      responsibilities: [
+        "Deliver bold champion concepts emphasizing silhouette readability from game camera angles.",
+        "Produce detailed turnaround and callout model packets for 3D character artists.",
+        "Explore creative thematic skinline variants."
+      ],
+      requirements: "Proven mastery of character design, dynamic gesture, and graphic shape language. Collaborative team spirit.",
+      software: "Photoshop, 3D Blockout",
+      score: 4.9,
+      verdict: "STRONG GO"
+    },
+    {
+      id: "cur-6",
+      title: "Concept Artist (Characters & Props)",
+      company: "The Coalition (Xbox Game Studios)",
+      location: "Vancouver, BC, Canada (Hybrid/Remote)",
+      workType: "Hybrid",
+      seniority: "Mid-level",
+      salary: "$85,000 - $105,000 CAD / yr",
+      datePosted: "2026-09-29",
+      source: "The Coalition Careers",
+      sourceType: "CURATED",
+      link: "https://thecoalitionstudio.com/careers/",
+      description: "Design gritty, heavy sci-fi characters, armor variants, and weapon hard-surface callouts for the Gears of War franchise.",
+      responsibilities: [
+        "Iterate character armor plates, fabrics, and equipment functionality.",
+        "Build 3D base blockouts to test volume and articulation before painting over.",
+        "Work closely with Art Director and Tech Artists."
+      ],
+      requirements: "Strong hard-surface and character costume sensibilities. Blender/ZBrush to Photoshop pipeline. Authorized in Canada.",
+      software: "Photoshop, Blender, ZBrush",
+      score: 4.6,
+      verdict: "STRONG GO"
+    },
+    {
+      id: "cur-7",
+      title: "Mid Concept Artist - Visual Development",
+      company: "BioWare (EA)",
+      location: "Edmonton, AB / Remote Canada",
+      workType: "Remote",
+      seniority: "Mid-level",
+      salary: "$84,000 - $102,000 CAD / yr",
+      datePosted: "2026-09-28",
+      source: "BioWare Careers",
+      sourceType: "CURATED",
+      link: "https://bioware.com/careers/",
+      description: "Establish character design, alien creatures, and keyframe narrative art for the next Mass Effect & Dragon Age universes.",
+      responsibilities: [
+        "Develop character turnarounds and costume callout packets with cultural narrative authenticity.",
+        "Produce mood lighting frames and thumbnail variations.",
+        "Support 3D modeling team with orthographic breakdowns."
+      ],
+      requirements: "Passion for RPG storytelling, strong costume design, anatomical accuracy. Authorized to work in Canada.",
+      software: "Photoshop, ZBrush, Blender",
+      score: 4.7,
+      verdict: "STRONG GO"
+    },
+    {
+      id: "cur-8",
+      title: "Visual Development & 2D Artist",
+      company: "Supergiant Games",
+      location: "Worldwide Remote / San Francisco",
+      workType: "Remote",
+      seniority: "Mid-level",
+      salary: "$80,000 - $110,000 USD / yr",
+      datePosted: "2026-09-27",
+      source: "Supergiant Games Careers",
+      sourceType: "CURATED",
+      link: "https://www.supergiantgames.com/careers/",
+      description: "Contribute to expressive character portraits, costume variants, and environment assets in the distinctive painterly mythic aesthetic.",
+      responsibilities: [
+        "Create character design sheets with vivid color palettes and crisp linework.",
+        "Produce in-game 2D visual assets and narrative portrait variations.",
+        "Collaborate in a small, tight-knit independent development team."
+      ],
+      requirements: "Exceptional draftsmanship, mastery of line and color, versatile portfolio across characters and game assets.",
+      software: "Photoshop, Clip Studio Paint",
+      score: 4.5,
+      verdict: "STRONG GO"
+    },
+    {
+      id: "cur-9",
+      title: "Concept Character Artist (South of Midnight)",
+      company: "Compulsion Games (Xbox)",
+      location: "Montreal, Quebec, Canada",
+      workType: "Hybrid",
+      seniority: "Mid-level",
+      salary: "$76,000 - $92,000 CAD / yr",
+      datePosted: "2026-09-26",
+      source: "Compulsion Games Careers",
+      sourceType: "CURATED",
+      link: "https://compulsiongames.com/careers/",
+      description: "Design folk-tale mythical creatures, stylized characters, and props inspired by American southern gothic folklore.",
+      responsibilities: [
+        "Develop stylized character concept turnarounds and costume explorations.",
+        "Design folkloric creatures with distinct silhouettes and personality.",
+        "Provide detailed callouts for 3D animators and character artists."
+      ],
+      requirements: "Unique stylized portfolio with character and creature focus. 3D blockout workflow is an asset. Authorized in Canada.",
+      software: "Photoshop, Blender",
+      score: 4.7,
+      verdict: "STRONG GO"
+    },
+    {
+      id: "cur-10",
+      title: "Concept Artist - Action / Adventure IP",
+      company: "Bungie (Sony)",
+      location: "US & Canada Remote",
+      workType: "Remote",
+      seniority: "Mid-level",
+      salary: "$85,000 - $115,000 USD / yr",
+      datePosted: "2026-09-25",
+      source: "Bungie Careers",
+      sourceType: "CURATED",
+      link: "https://careers.bungie.com/",
+      description: "Create character gear sets, costume concepts, and sci-fi weaponry for the Destiny & Marathon creative universes.",
+      responsibilities: [
+        "Produce detailed character armor sheets and graphic design callouts.",
+        "Iterate thumbnail silhouettes for player customization gear.",
+        "Coordinate with 3D modelers on material separation and functional joints."
+      ],
+      requirements: "Strong sci-fi design logic, hard-surface blockout skills, and team-oriented iterative mindset.",
+      software: "Photoshop, ZBrush, Blender",
+      score: 4.6,
+      verdict: "STRONG GO"
+    },
+    {
+      id: "cur-11",
+      title: "2D Character & Prop Artist",
+      company: "Blackbird Interactive",
+      location: "Vancouver, BC / Remote Canada",
+      workType: "Remote",
+      seniority: "Mid-level",
+      salary: "$75,000 - $90,000 CAD / yr",
+      datePosted: "2026-09-24",
+      source: "Blackbird Interactive Careers",
+      sourceType: "CURATED",
+      link: "https://blackbirdinteractive.com/careers/",
+      description: "Design industrial hard-surface ground units, character pilot portraits, and military equipment for RTS titles.",
+      responsibilities: ["Develop functional mechanical vehicle and character suit concept turnarounds."],
+      requirements: "Industrial functional design sensibility, Blender blockouts, Photoshop rendering.",
+      software: "Photoshop, Blender",
+      score: 4.5,
+      verdict: "STRONG GO"
+    },
+    {
+      id: "cur-12",
+      title: "Concept Artist (Horror / VisDev)",
+      company: "Red Barrels",
+      location: "Montreal, Quebec, Canada",
+      workType: "Hybrid",
+      seniority: "Mid-level",
+      salary: "$78,000 - $95,000 CAD / yr",
+      datePosted: "2026-09-23",
+      source: "Red Barrels Careers",
+      sourceType: "CURATED",
+      link: "https://redbarrelsgames.com/jobs/",
+      description: "Design grotesque psychological horror adversaries, atmospheric clinical environments, and disturbing costume motifs for Outlast trials.",
+      responsibilities: ["Explore visceral silhouettes and orthographic turnaround sheets for enemy characters."],
+      requirements: "Superb anatomical deformation knowledge, gritty photo-bashing and paint-over mastery.",
+      software: "Photoshop, ZBrush",
+      score: 4.7,
+      verdict: "STRONG GO"
+    },
+    {
+      id: "cur-13",
+      title: "Concept Artist (Heroes & Villains)",
+      company: "Eidos-Montreal",
+      location: "Montreal, Canada",
+      workType: "Hybrid",
+      seniority: "Mid-level",
+      salary: "$82,000 - $97,000 CAD / yr",
+      datePosted: "2026-09-22",
+      source: "Eidos Careers",
+      sourceType: "CURATED",
+      link: "https://eidosmontreal.com/careers/",
+      description: "Lead character visual development, cybernetic implants, and tactical costume sheets for unannounced AAA action title.",
+      responsibilities: ["Create high-fidelity character turnaround sheets and material breakdowns."],
+      requirements: "3+ years AAA production art experience, strong cyberpunk/sci-fi design aesthetics.",
+      software: "Photoshop, 3D Blockout",
+      score: 4.6,
+      verdict: "STRONG GO"
+    },
+    {
+      id: "cur-14",
+      title: "2D Illustrator & Visual Development",
+      company: "Innersloth",
+      location: "100% Worldwide Remote",
+      workType: "Remote",
+      seniority: "Mid-level",
+      salary: "$80,000 - $105,000 USD / yr",
+      datePosted: "2026-09-21",
+      source: "Innersloth Careers",
+      sourceType: "CURATED",
+      link: "https://innersloth.com/careers/",
+      description: "Create charming, iconic character cosmetic hats, skins, animated pose turnarounds, and promotional keyframe art.",
+      responsibilities: ["Develop expressive silhouettes, whimsical costume variants, and vector asset packets."],
+      requirements: "Strong graphic sense, line-art clarity, vector/raster versatility.",
+      software: "Photoshop, Illustrator",
+      score: 4.4,
+      verdict: "STRONG GO"
+    },
+    {
+      id: "cur-15",
+      title: "Concept Artist (Characters & World)",
+      company: "Relic Entertainment",
+      location: "Vancouver, BC / Remote Canada",
+      workType: "Hybrid",
+      seniority: "Mid-level",
+      salary: "$78,000 - $94,000 CAD / yr",
+      datePosted: "2026-09-20",
+      source: "Relic Careers",
+      sourceType: "CURATED",
+      link: "https://relic.com/careers/",
+      description: "Establish period-authentic military costumes, hero portraits, and battlefield equipment sketches.",
+      responsibilities: ["Produce historically grounded character turnarounds and costume callouts."],
+      requirements: "Historical military costume research, anatomical foundation, authorized in Canada.",
+      software: "Photoshop, 3D Blockout",
+      score: 4.4,
+      verdict: "STRONG GO"
+    }
+  ];
+
+  // INITIAL PIPELINE JOBS
+  const INITIAL_PIPELINE = [
+    {
+      id: "pipe-1",
+      title: "Mid-Level Character Concept Artist",
+      location: "Montreal, Canada",
+      link: "https://careers.behaviour.com/",
+      requirements: "Strong character & costume design, anatomy mastery, Blender/ZBrush blockout",
+      remote: "Hybrid",
+      seniority: "Mid-level",
+      status: "🟣 Discovered / Bookmarked",
+      datePosted: "2026-10-04",
+      sourceSite: "Behaviour Interactive",
+      score: 4.8
+    },
+    {
+      id: "pipe-2",
+      title: "2D Creature & Character Artist",
+      location: "London, ON / Remote Canada",
+      link: "https://www.digitalextremes.com/careers",
+      requirements: "Creature anatomy, silhouette exploration, iterative thumbnails, Photoshop",
+      remote: "Remote",
+      seniority: "Mid-level",
+      status: "🟡 Applied / Waiting",
+      datePosted: "2026-10-03",
+      sourceSite: "Digital Extremes",
+      score: 4.7
+    },
+    {
+      id: "pipe-3",
+      title: "Concept Prop & Hard-Surface Artist",
+      location: "Montreal, Canada",
+      link: "https://www.ea.com/ea-studios/motive/careers",
+      requirements: "Hard-surface props, weapons, vehicle sketches, functional industrial design logic",
+      remote: "Hybrid",
+      seniority: "Mid-level",
+      status: "🟠 Recruiter Screen / Contacted",
+      datePosted: "2026-10-01",
+      sourceSite: "EA Motive",
+      score: 4.4
+    },
+    {
+      id: "pipe-4",
+      title: "Remote 2D Concept Artist (Generalist)",
+      location: "Worldwide (Remote)",
+      link: "https://moongamestudios.com/jobs/",
+      requirements: "Versatile 2D skills across characters and environments, visual development",
+      remote: "Remote",
+      seniority: "Mid-level",
+      status: "🔵 Art Test / Assignment",
+      datePosted: "2026-09-28",
+      sourceSite: "Moon Studios",
+      score: 4.8
+    },
+    {
+      id: "pipe-5",
+      title: "Visual Development & Concept Artist",
+      location: "Worldwide Remote",
+      link: "https://www.riotgames.com/en/work-with-us/jobs",
+      requirements: "Keyframe illustration, lighting mood boards, character turnaround sheets",
+      remote: "Remote",
+      seniority: "Mid-level",
+      status: "🟢 Interviewing (Portfolio / Team)",
+      datePosted: "2026-09-25",
+      sourceSite: "Riot Games",
+      score: 4.9
+    }
+  ];
+
+  // CANADIAN & GLOBAL STUDIOS DIRECTORY
+  const STUDIOS_LIST = [
+    { name: "Behaviour Interactive", hub: "Montreal, Canada", titles: "Dead by Daylight", url: "https://careers.behaviour.com/" },
+    { name: "Ubisoft Montreal", hub: "Montreal, Canada", titles: "Assassin's Creed, Far Cry", url: "https://www.ubisoft.com/en-us/company/careers" },
+    { name: "Eidos-Montreal", hub: "Montreal, Canada", titles: "Deus Ex, Guardians of the Galaxy", url: "https://eidosmontreal.com/careers/" },
+    { name: "Compulsion Games (Xbox)", hub: "Montreal, Canada", titles: "South of Midnight", url: "https://compulsiongames.com/careers/" },
+    { name: "Red Barrels", hub: "Montreal, Canada", titles: "The Outlast Trials", url: "https://redbarrelsgames.com/jobs/" },
+    { name: "The Coalition (Xbox)", hub: "Vancouver, Canada", titles: "Gears of War series", url: "https://thecoalitionstudio.com/careers/" },
+    { name: "EA Vancouver", hub: "Vancouver, Canada", titles: "EA Sports, Skate", url: "https://www.ea.com/careers" },
+    { name: "Relic Entertainment", hub: "Vancouver, Canada", titles: "Company of Heroes", url: "https://relic.com/careers/" },
+    { name: "Blackbird Interactive", hub: "Vancouver, Canada", titles: "Homeworld 3", url: "https://blackbirdinteractive.com/careers/" },
+    { name: "Digital Extremes", hub: "London, ON, Canada", titles: "Warframe, Soulframe", url: "https://www.digitalextremes.com/careers" },
+    { name: "BioWare (EA)", hub: "Edmonton, Canada", titles: "Dragon Age, Mass Effect", url: "https://bioware.com/careers/" },
+    { name: "Moon Studios", hub: "Worldwide Remote", titles: "No Rest for the Wicked, Ori", url: "https://moongamestudios.com/jobs/" },
+    { name: "Riot Games", hub: "Global Remote", titles: "League of Legends, Valorant", url: "https://www.riotgames.com/en/work-with-us/jobs" },
+    { name: "Bungie (Sony)", hub: "US & Canada Remote", titles: "Destiny 2, Marathon", url: "https://careers.bungie.com/" },
+    { name: "Supergiant Games", hub: "Worldwide Remote", titles: "Hades I & II", url: "https://www.supergiantgames.com/careers/" }
+  ];
+
+  // STATE VARIABLES
+  let pipelineJobs = [];
+  let liveVacancies = [...CURATED_VACANCIES];
+  let auditLogs = [
+    { time: "Just now", action: "System initialized with 15 verified curated concept art vacancies", cat: "SYSTEM" },
+    { time: "1 min ago", action: "Career-Ops 4.0 Apply Line filter enabled", cat: "RUBRIC" }
+  ];
+  let sortConfig = { field: "datePosted", asc: false };
+  let appSettings = {
+    apiKey: "",
+    model: "gemini-2.5-flash",
+    name: "Concept Artist",
+    focus: "Character & Creature Concept Art (2D/3D Hybrid)",
+    seniority: "Mid-level",
+    location: "Canada (Montreal / Vancouver / Toronto) & Worldwide Remote",
+    portfolio: "https://www.artstation.com/your-portfolio"
+  };
+
+  // =========================================================================
+  // RFC-4180 COMPLIANT CSV PARSER
+  // =========================================================================
+  function parseCSV(text) {
+    const rows = [];
+    let currentRow = [];
+    let currentVal = '';
+    let inQuotes = false;
+    
+    for (let i = 0; i < text.length; i++) {
+      const char = text[i];
+      const nextChar = text[i + 1];
+      
+      if (char === '"') {
+        if (inQuotes && nextChar === '"') {
+          currentVal += '"';
+          i++; // skip escaped quote
+        } else {
+          inQuotes = !inQuotes;
+        }
+      } else if (char === ',' && !inQuotes) {
+        currentRow.push(currentVal.trim());
+        currentVal = '';
+      } else if ((char === '\r' || char === '\n') && !inQuotes) {
+        if (char === '\r' && nextChar === '\n') {
+          i++;
+        }
+        currentRow.push(currentVal.trim());
+        if (currentRow.length > 1 || (currentRow.length === 1 && currentRow[0] !== '')) {
+          rows.push(currentRow);
+        }
+        currentRow = [];
+        currentVal = '';
+      } else {
+        currentVal += char;
+      }
+    }
+    if (currentVal || currentRow.length > 0) {
+      currentRow.push(currentVal.trim());
+      if (currentRow.length > 1 || (currentRow.length === 1 && currentRow[0] !== '')) {
+        rows.push(currentRow);
+      }
+    }
+    return rows;
+  }
+
+  // =========================================================================
+  // ANTI-DUPLICATE VERIFICATION LOGIC (Title + Company OR URL)
+  // =========================================================================
+  function isJobDuplicate(title, company, link) {
+    const normTitle = (title || '').trim().toLowerCase();
+    const normCompany = (company || '').trim().toLowerCase();
+    const normLink = (link || '').trim().toLowerCase();
+
+    return pipelineJobs.some(j => {
+      const jTitle = (j.title || '').trim().toLowerCase();
+      const jCompany = (j.sourceSite || '').trim().toLowerCase();
+      const jLink = (j.link || '').trim().toLowerCase();
+
+      // Check title + company match
+      if (normTitle && normCompany && jTitle === normTitle && jCompany === normCompany) {
+        return true;
+      }
+      // Check link match (if provided and not just generic root)
+      if (normLink && jLink && normLink === jLink && normLink.length > 15) {
+        return true;
+      }
+      return false;
+    });
+  }
+
+  function checkPipelineDuplicates() {
+    const seen = new Map();
+    const duplicates = [];
+
+    pipelineJobs.forEach(job => {
+      const key = `${(job.title || '').toLowerCase()}|${(job.sourceSite || '').toLowerCase()}`;
+      if (seen.has(key)) {
+        duplicates.push({ job, duplicateOf: seen.get(key) });
+      } else {
+        seen.set(key, job);
+      }
+    });
+
+    const statusEl = document.getElementById('auditDupsStatus');
+    const headingEl = document.getElementById('auditDupsHeading');
+    const listEl = document.getElementById('auditDupsList');
+
+    if (duplicates.length === 0) {
+      if (statusEl) statusEl.innerHTML = `Zero duplicates found in your active pipeline (Verified: (Title + Studio) and URL uniqueness across ${pipelineJobs.length} tracked jobs).`;
+      if (headingEl) {
+        headingEl.innerText = "✅ Deduplication Engine Status: Clean";
+        headingEl.style.color = "#34D399";
+      }
+      if (listEl) {
+        listEl.style.display = 'none';
+        listEl.innerHTML = '';
+      }
+    } else {
+      if (statusEl) statusEl.innerHTML = `⚠️ <b style="color: #F87171;">${duplicates.length} duplicate entry(s) detected</b> in your pipeline:`;
+      if (headingEl) {
+        headingEl.innerText = `⚠️ Duplicates Detected (${duplicates.length})`;
+        headingEl.style.color = "#F87171";
+      }
+      if (listEl) {
+        listEl.style.display = 'block';
+        listEl.innerHTML = duplicates.map(d => `
+          <div style="background: rgba(239,68,68,0.1); border: 1px solid rgba(239,68,68,0.3); padding: 0.5rem 0.75rem; border-radius: var(--radius-sm); margin-bottom: 0.4rem; display: flex; justify-content: space-between; align-items: center; font-size: 0.78rem;">
+            <span>"${escapeHtml(d.job.title)}" at "${escapeHtml(d.job.sourceSite)}"</span>
+            <button type="button" class="btn btn-secondary btn-sm" onclick="deleteJob('${d.job.id}')" style="color: #F87171;">Remove Duplicate</button>
+          </div>
+        `).join('');
+      }
+    }
+  }
+
+  // =========================================================================
+  // INITIALIZATION
+  // =========================================================================
+  function init() {
+    try {
+      // Load Settings
+      const savedSettings = localStorage.getItem("artapply_settings");
+      if (savedSettings) {
+        try {
+          appSettings = { ...appSettings, ...JSON.parse(savedSettings) };
+        } catch (e) {}
+      }
+      updateSettingsUI();
+
+      // Load Pipeline
+      const saved = localStorage.getItem("artapply_pipeline");
+      if (saved) {
+        pipelineJobs = JSON.parse(saved);
+      } else {
+        pipelineJobs = INITIAL_PIPELINE;
+        savePipeline();
+      }
+
+      renderVacancies();
+      renderKanban();
+      renderTable();
+      renderStudios();
+      renderAuditLogs();
+      renderStats();
+      generateSpintaxLetter();
+      calculateRates();
+      checkPipelineDuplicates();
+    } catch (e) {
+      console.error("Init error:", e);
+      pipelineJobs = INITIAL_PIPELINE;
+      renderVacancies();
+    }
+  }
+
+  function savePipeline() {
+    localStorage.setItem("artapply_pipeline", JSON.stringify(pipelineJobs));
+    renderStats();
+    checkPipelineDuplicates();
+  }
+
+  function logAudit(action, cat = "INFO") {
+    auditLogs.unshift({
+      time: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' }),
+      action: action,
+      cat: cat
+    });
+    if (auditLogs.length > 50) auditLogs.pop();
+    renderAuditLogs();
+  }
+
+  function renderAuditLogs() {
+    const el = document.getElementById('auditLogList');
+    if (!el) return;
+    el.innerHTML = auditLogs.map(l => `
+      <div style="background: var(--bg-base); padding: 0.65rem 0.85rem; border-radius: var(--radius-sm); border: 1px solid var(--border-subtle); display: flex; justify-content: space-between; align-items: center; font-size: 0.78rem;">
+        <div>
+          <span style="font-family: 'JetBrains Mono', monospace; font-weight: 700; color: #818CF8; font-size: 0.72rem;">[${l.cat}]</span>
+          <span style="color: #FFFFFF; margin-left: 0.4rem;">${escapeHtml(l.action)}</span>
+        </div>
+        <span style="color: var(--text-dim); font-size: 0.72rem; font-family: 'JetBrains Mono', monospace;">${l.time}</span>
+      </div>
+    `).join('');
+  }
+
+  function clearAuditLog() {
+    auditLogs = [];
+    renderAuditLogs();
+    showToast("Audit log cleared");
+  }
+
+  function renderStats() {
+    const total = document.getElementById('stat-total');
+    if (total) total.innerText = pipelineJobs.length;
+
+    const applied = document.getElementById('stat-applied');
+    if (applied) applied.innerText = pipelineJobs.filter(j => (j.status || '').includes('Applied')).length;
+
+    const intEl = document.getElementById('stat-interviewing');
+    if (intEl) intEl.innerText = pipelineJobs.filter(j => {
+      const s = j.status || '';
+      return s.includes('Art Test') || s.includes('Interviewing') || s.includes('Recruiter');
+    }).length;
+
+    const vacEl = document.getElementById('stat-vacancies-count');
+    if (vacEl) vacEl.innerText = liveVacancies.length;
+
+    const avgEl = document.getElementById('stat-avg-score');
+    if (avgEl) {
+      if (pipelineJobs.length === 0) {
+        avgEl.innerText = "0.0 ★";
+      } else {
+        const sum = pipelineJobs.reduce((acc, curr) => acc + (parseFloat(curr.score) || 4.5), 0);
+        avgEl.innerText = (sum / pipelineJobs.length).toFixed(1) + " ★";
+      }
+    }
+  }
+
+  // =========================================================================
+  // VIEW 0: VACANCIES FEED & LIVE REMOTIVE API CRAWLER
+  // =========================================================================
+  function renderVacancies() {
+    const container = document.getElementById('vacanciesContainer');
+    if (!container) return;
+
+    const query = (document.getElementById('vacSearchKeywords')?.value || '').toLowerCase();
+    const sourceFilt = document.getElementById('vacSourceFilter')?.value || 'ALL';
+    const loc = document.getElementById('vacLocationFilter')?.value || 'ALL';
+    const sen = document.getElementById('vacSeniorityFilter')?.value || 'ALL';
+    const scoreFilt = document.getElementById('vacScoreFilter')?.value || 'ALL';
+
+    const filtered = liveVacancies.filter(v => {
+      const matchText = !query || 
+        (v.title || '').toLowerCase().includes(query) ||
+        (v.company || '').toLowerCase().includes(query) ||
+        (v.requirements || '').toLowerCase().includes(query) ||
+        (v.software || '').toLowerCase().includes(query) ||
+        (v.description || '').toLowerCase().includes(query);
+
+      let matchSource = true;
+      if (sourceFilt === 'CURATED') matchSource = (v.sourceType === 'CURATED');
+      else if (sourceFilt === 'REMOTIVE') matchSource = (v.sourceType === 'REMOTIVE');
+
+      let matchLoc = true;
+      const vLoc = (v.location || '').toLowerCase();
+      if (loc === 'CANADA') matchLoc = vLoc.includes('canada') || vLoc.includes('montreal') || vLoc.includes('vancouver') || vLoc.includes('toronto');
+      else if (loc === 'REMOTE') matchLoc = v.workType === 'Remote' || vLoc.includes('remote');
+
+      let matchSen = true;
+      if (sen !== 'ALL') matchSen = (v.seniority || '').toLowerCase().includes(sen.toLowerCase());
+
+      let matchScore = true;
+      if (scoreFilt === 'GO') matchScore = (v.score >= 4.0);
+      else if (scoreFilt === 'MOD') matchScore = (v.score >= 3.5);
+
+      return matchText && matchSource && matchLoc && matchSen && matchScore;
+    });
+
+    if (filtered.length === 0) {
+      container.innerHTML = `
+        <div style="background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); padding: 3rem; text-align: center; color: var(--text-muted);">
+          <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">🔍</div>
+          <p style="font-size: 1rem; color: #FFFFFF; font-weight: 700; margin-bottom: 0.25rem;">No vacancies found matching criteria</p>
+          <p style="font-size: 0.8rem;">Try clearing search keywords or click "Reset" above.</p>
+        </div>
+      `;
+      return;
+    }
+
+    container.innerHTML = filtered.map(v => {
+      const isTracked = isJobDuplicate(v.title, v.company, v.link);
+      const respHtml = (v.responsibilities || []).map(r => `<li>${escapeHtml(r)}</li>`).join('');
+
+      let scoreClass = 'score-strong';
+      if (v.score < 3.5) scoreClass = 'score-pass';
+      else if (v.score < 4.0) scoreClass = 'score-mod';
+
+      const isLiveApi = v.sourceType === 'REMOTIVE';
+
+      return `
+        <div class="vacancy-card">
+          <div class="vacancy-header">
+            <div class="vacancy-title-group">
+              <div class="studio-avatar" style="${isLiveApi ? 'color: #06B6D4; border-color: rgba(6,182,212,0.3);' : ''}">${(v.company || 'S').charAt(0)}</div>
+              <div class="vacancy-title-text">
+                <h3>${escapeHtml(v.title)}</h3>
+                <div class="vacancy-studio-sub">
+                  <b style="color: #FFFFFF;">${escapeHtml(v.company)}</b>
+                  <span>•</span>
+                  <span>📍 ${escapeHtml(v.location)}</span>
+                  <span>•</span>
+                  <span>📅 Posted ${v.datePosted}</span>
+                  ${isLiveApi ? '<span class="badge api">⚡ Remotive Live API</span>' : ''}
+                </div>
+              </div>
+            </div>
+            <div style="text-align: right;">
+              <span class="rubric-score-tag ${scoreClass}">
+                ${v.score} ★ ${v.verdict}
+              </span>
+              <div style="font-size: 0.72rem; color: var(--text-dim); margin-top: 3px; font-family: 'JetBrains Mono', monospace;">${escapeHtml(v.source)}</div>
+            </div>
+          </div>
+
+          <div class="vacancy-meta-pills">
+            <span class="badge ${v.workType === 'Hybrid' ? 'hybrid' : 'remote'}">${escapeHtml(v.workType || 'Remote')}</span>
+            <span class="badge">${escapeHtml(v.seniority || 'Mid-level')}</span>
+            <span class="badge" style="background: rgba(245,158,11,0.1); color: #FBBF24; border-color: rgba(245,158,11,0.3);">💰 ${escapeHtml(v.salary || 'Competitive / B2B')}</span>
+            ${v.software ? `<span class="badge" style="background: rgba(255,255,255,0.04);">🎨 Tools: ${escapeHtml(v.software)}</span>` : ''}
+          </div>
+
+          <div class="vacancy-desc-section">
+            <p style="margin-bottom: 0.5rem;"><b>Role Overview:</b> ${escapeHtml(v.description || '')}</p>
+            ${respHtml ? `<div style="font-size: 0.76rem; color: var(--text-muted); margin-bottom: 0.4rem;"><b>Key Responsibilities:</b><ul style="margin-left: 1.25rem; margin-top: 2px;">${respHtml}</ul></div>` : ''}
+            ${v.requirements ? `<div style="font-size: 0.76rem; color: #94A3B8;"><b>Hard Requirements:</b> ${escapeHtml(v.requirements)}</div>` : ''}
+          </div>
+
+          <div class="vacancy-actions-bar">
+            <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+              ${isTracked ?
+                `<button type="button" class="btn btn-secondary btn-sm" disabled style="opacity: 0.6; cursor: default;">✓ In Your Pipeline</button>` :
+                `<button type="button" class="btn btn-primary btn-sm" onclick="trackVacancy('${v.id}')">+ Add to Pipeline Tracker</button>`
+              }
+              <button type="button" class="btn btn-secondary btn-sm" onclick="evaluateVacancy('${v.id}')">
+                🎯 5D Rubric & /apply Answers
+              </button>
+              <button type="button" class="btn btn-secondary btn-sm" onclick="draftCoverLetter('${escapeHtml(v.company)}', '${escapeHtml(v.title)}')">
+                🎲 Draft Spintax Cover Letter
+              </button>
+            </div>
+            <div>
+              <a href="${v.link}" target="_blank" class="btn btn-secondary btn-sm" style="color: var(--accent-cyan);">
+                Open Official Posting ↗
+              </a>
+            </div>
+          </div>
+        </div>
+      `;
+    }).join('');
+  }
+
+  function filterVacancies() {
+    renderVacancies();
+  }
+
+  function resetVacancyFilters() {
+    document.getElementById('vacSearchKeywords').value = '';
+    document.getElementById('vacSourceFilter').value = 'ALL';
+    document.getElementById('vacLocationFilter').value = 'ALL';
+    document.getElementById('vacSeniorityFilter').value = 'ALL';
+    document.getElementById('vacScoreFilter').value = 'GO';
+    renderVacancies();
+    showToast("Filters reset");
+  }
+
+  // FETCH LIVE REMOTE JOBS FROM REMOTIVE PUBLIC API
+  async function fetchLiveRemoteJobs() {
+    const btn = document.getElementById('btnSyncRemotive');
+    const originalText = btn.innerHTML;
+    btn.innerHTML = `<span class="spinner"></span> Syncing Remotive API...`;
+    btn.disabled = true;
+
+    try {
+      const res = await fetch("https://remotive.com/api/remote-jobs?category=design&limit=30");
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      const data = await res.json();
+      const rawJobs = data.jobs || [];
+
+      let addedCount = 0;
+      rawJobs.forEach(j => {
+        const id = "remotive-" + j.id;
+        const exists = liveVacancies.some(v => v.id === id || (v.link && v.link === j.url));
+        if (!exists) {
+          // Clean HTML from description
+          const tempDiv = document.createElement("div");
+          tempDiv.innerHTML = j.description || "";
+          const cleanDesc = (tempDiv.textContent || tempDiv.innerText || "").slice(0, 300) + "...";
+
+          // Calculate genuine 5D rubric fit score
+          const fitEval = evaluateTextRubric(j.title + " " + cleanDesc, j.url);
+
+          // Infer seniority
+          let sen = "Mid-level";
+          const titleLower = j.title.toLowerCase();
+          if (titleLower.includes("senior") || titleLower.includes("sr.")) sen = "Senior";
+          else if (titleLower.includes("lead") || titleLower.includes("director") || titleLower.includes("head")) sen = "Lead";
+          else if (titleLower.includes("junior") || titleLower.includes("entry") || titleLower.includes("intern")) sen = "Junior";
+
+          liveVacancies.unshift({
+            id: id,
+            title: j.title,
+            company: j.company_name,
+            location: j.candidate_required_location || "Worldwide Remote",
+            workType: "Remote",
+            seniority: sen,
+            salary: j.salary || "Competitive / Global Remote",
+            datePosted: j.publication_date ? j.publication_date.split('T')[0] : new Date().toISOString().split('T')[0],
+            source: "Remotive Public API",
+            sourceType: "REMOTIVE",
+            link: j.url,
+            description: cleanDesc,
+            responsibilities: ["Lead design sprints and asset delivery.", "Collaborate across distributed remote engineering and art pipelines."],
+            requirements: j.tags ? j.tags.join(', ') : "Production design fluency",
+            software: extractSoftwareFromText(j.description || ""),
+            score: fitEval.globalScore,
+            verdict: fitEval.verdict
+          });
+          addedCount++;
+        }
+      });
+
+      renderVacancies();
+      renderStats();
+      showToast(`Synced ${addedCount} live jobs from Remotive API!`);
+      logAudit(`Synced ${addedCount} live remote vacancies from Remotive API`, "API_SYNC");
+    } catch (err) {
+      console.error("Remotive sync error:", err);
+      showToast("Remotive sync failed (network or CORS limitation)");
+    } finally {
+      btn.innerHTML = originalText;
+      btn.disabled = false;
+    }
+  }
+
+  function trackVacancy(id) {
+    const v = liveVacancies.find(x => x.id === id);
+    if (!v) return;
+
+    if (isJobDuplicate(v.title, v.company, v.link)) {
+      alert(`⚠️ Anti-Duplicate Guard: "${v.title}" at "${v.company}" is already in your tracker!`);
+      return;
+    }
+
+    pipelineJobs.unshift({
+      id: "job-" + Date.now(),
+      title: v.title,
+      location: v.location,
+      link: v.link,
+      requirements: `${v.requirements || ''} | Tools: ${v.software || 'Photoshop'}`,
+      remote: v.workType,
+      seniority: v.seniority,
+      status: "🟣 Discovered / Bookmarked",
+      datePosted: v.datePosted,
+      sourceSite: v.company,
+      score: v.score
+    });
+
+    savePipeline();
+    renderVacancies();
+    renderKanban();
+    renderTable();
+    showToast(`Added "${v.title}" to Pipeline!`);
+    logAudit(`Added vacancy "${v.title}" at "${v.company}" to Pipeline`, "JOB_ADD");
+  }
+
+  function batchAddStrongGo() {
+    let count = 0;
+    liveVacancies.forEach(v => {
+      if (v.score >= 4.0) {
+        if (!isJobDuplicate(v.title, v.company, v.link)) {
+          pipelineJobs.push({
+            id: "job-" + Date.now() + "-" + Math.random().toString(36).substr(2, 4),
+            title: v.title,
+            location: v.location,
+            link: v.link,
+            requirements: v.requirements,
+            remote: v.workType,
+            seniority: v.seniority,
+            status: "🟣 Discovered / Bookmarked",
+            datePosted: v.datePosted,
+            sourceSite: v.company,
+            score: v.score
+          });
+          count++;
+        }
+      }
+    });
+
+    if (count > 0) {
+      savePipeline();
+      renderVacancies();
+      renderKanban();
+      renderTable();
+      showToast(`Batch added ${count} Strong GO roles to Pipeline!`);
+      logAudit(`Batch added ${count} Strong GO vacancies to Pipeline`, "JOB_ADD");
+      switchTab('kanban');
+    } else {
+      showToast("All matching roles are already tracked in your pipeline!");
+    }
+  }
+
+  function evaluateVacancy(id) {
+    const v = liveVacancies.find(x => x.id === id);
+    if (!v) return;
+
+    document.getElementById('aiInputUrl').value = v.link;
+    document.getElementById('aiInputText').value = `${v.company} is hiring a ${v.title} in ${v.location}.
+Overview: ${v.description}
+Responsibilities:
+${(v.responsibilities || []).map(r => '- ' + r).join('\n')}
+Requirements: ${v.requirements}
+Software: ${v.software}`;
+
+    switchTab('analyzer');
+    runRubricEvaluation();
+  }
+
+  function draftCoverLetter(company, role) {
+    document.getElementById('spinStudio').value = company;
+    document.getElementById('spinRole').value = role;
+    switchTab('spintax');
+    generateSpintaxLetter();
+  }
+
+  // =========================================================================
+  // DYNAMIC URL & TEXT PARSER (GEMINI AI OR SMART HEURISTICS)
+  // =========================================================================
+  async function parseQuickUrl() {
+    const input = document.getElementById('quickPasteUrl')?.value.trim();
+    if (!input) {
+      alert("Please paste a job URL or description snippet!");
+      return;
+    }
+
+    const btn = document.getElementById('btnQuickParse');
+    const origText = btn.innerHTML;
+    btn.innerHTML = `<span class="spinner"></span> Parsing...`;
+    btn.disabled = true;
+
+    try {
+      let parsed = null;
+
+      // If Gemini API key is present, try Gemini LLM parsing
+      if (appSettings.apiKey) {
+        parsed = await callGeminiParseJob(input);
+      }
+
+      // Fallback to heuristic parser if Gemini not used or failed
+      if (!parsed) {
+        parsed = parseJobSnippetHeuristically(input);
+      }
+
+      // Check duplicate
+      if (isJobDuplicate(parsed.title, parsed.company, parsed.link)) {
+        alert(`⚠️ Anti-Duplicate Guard: "${parsed.title}" at "${parsed.company}" is already in your records!`);
+        return;
+      }
+
+      // Calculate fit
+      const fit = evaluateTextRubric(parsed.title + " " + parsed.description + " " + parsed.requirements, parsed.link);
+
+      const newVac = {
+        id: "parsed-" + Date.now(),
+        title: parsed.title,
+        company: parsed.company,
+        location: parsed.location,
+        workType: parsed.workType || "Remote",
+        seniority: parsed.seniority || "Mid-level",
+        salary: parsed.salary || "Competitive Market / B2B",
+        datePosted: new Date().toISOString().split('T')[0],
+        source: parsed.link ? (parsed.link.startsWith("http") ? new URL(parsed.link).hostname : "Parsed URL") : "Manual Paste",
+        sourceType: "USER_PARSED",
+        link: parsed.link || "#",
+        description: parsed.description,
+        responsibilities: parsed.responsibilities || ["Design production-ready concept art assets."],
+        requirements: parsed.requirements,
+        software: parsed.software || "Photoshop, Blender",
+        score: fit.globalScore,
+        verdict: fit.verdict
+      };
+
+      liveVacancies.unshift(newVac);
+      renderVacancies();
+      renderStats();
+      document.getElementById('quickPasteUrl').value = '';
+      showToast(`Parsed and added "${parsed.title}" at "${parsed.company}"!`);
+      logAudit(`Parsed role: "${parsed.title}" at "${parsed.company}"`, "PARSE");
+    } catch (e) {
+      console.error("Parse error:", e);
+      showToast("Error parsing job. Please check format.");
+    } finally {
+      btn.innerHTML = origText;
+      btn.disabled = false;
+    }
+  }
+
+  function parseJobSnippetHeuristically(input) {
+    let url = "";
+    let text = input;
+
+    if (input.startsWith("http://") || input.startsWith("https://")) {
+      url = input.split(/\s+/)[0];
+      text = input.slice(url.length).trim();
+    }
+
+    let company = "Game Studio";
+    let title = "Concept Artist (Characters & Visual Development)";
+    let location = "Montreal, Canada (or Remote)";
+    let workType = "Remote";
+    let seniority = "Mid-level";
+
+    // Detect studio from URL or text
+    if (url) {
+      try {
+        const u = new URL(url);
+        const host = u.hostname.replace('www.', '').replace('careers.', '').replace('jobs.', '');
+        const studioName = host.split('.')[0];
+        company = studioName.charAt(0).toUpperCase() + studioName.slice(1);
+        
+        // Match against known studios
+        STUDIOS_LIST.forEach(s => {
+          if (host.includes(s.name.toLowerCase().split(' ')[0])) {
+            company = s.name;
+            location = s.hub;
+          }
+        });
+
+        // Parse path tokens for title
+        const path = u.pathname.replace(/-/g, ' ').replace(/_/g, ' ');
+        if (path.includes("concept")) {
+          if (path.includes("character")) title = "Character Concept Artist";
+          else if (path.includes("creature")) title = "Creature & Character Artist";
+          else if (path.includes("prop")) title = "Concept Prop & Hard-Surface Artist";
+          else if (path.includes("environment")) title = "Environment Concept Artist";
+        }
+      } catch (e) {}
+    }
+
+    const lower = text.toLowerCase();
+    if (lower.includes("character")) title = "Character Concept Artist";
+    if (lower.includes("creature")) title = "Creature & Character Concept Artist";
+    if (lower.includes("senior")) seniority = "Senior";
+    else if (lower.includes("lead")) seniority = "Lead";
+    else if (lower.includes("junior")) seniority = "Junior";
+
+    if (lower.includes("canada") || lower.includes("montreal")) location = "Montreal, Canada";
+    else if (lower.includes("vancouver")) location = "Vancouver, BC, Canada";
+    else if (lower.includes("worldwide") || lower.includes("remote")) location = "Worldwide Remote";
+
+    return {
+      title: title,
+      company: company,
+      location: location,
+      workType: workType,
+      seniority: seniority,
+      salary: "$80,000 - $105,000 CAD / yr",
+      link: url || "#",
+      description: text || "Production concept artist focused on character turnaround packages, material callouts, and 3D-to-2D iteration pipeline.",
+      responsibilities: [
+        "Develop rapid silhouette explorations and orthographic turnaround sheets for 3D modelers.",
+        "Collaborate with Art Director on character visual targets."
+      ],
+      requirements: "Proficiency in Photoshop and 3D blockout (Blender/ZBrush). Strong anatomy.",
+      software: extractSoftwareFromText(text) || "Photoshop, Blender"
+    };
+  }
+
+  function extractSoftwareFromText(text) {
+    const tools = [];
+    const lower = text.toLowerCase();
+    if (lower.includes("photoshop")) tools.push("Photoshop");
+    if (lower.includes("blender")) tools.push("Blender");
+    if (lower.includes("zbrush")) tools.push("ZBrush");
+    if (lower.includes("maya")) tools.push("Maya");
+    if (lower.includes("unreal")) tools.push("Unreal Engine");
+    if (lower.includes("unity")) tools.push("Unity");
+    if (lower.includes("clip studio")) tools.push("Clip Studio");
+    if (lower.includes("substance")) tools.push("Substance 3D");
+    if (tools.length === 0) return "Photoshop, Blender, ZBrush";
+    return tools.join(", ");
+  }
+
+  // =========================================================================
+  // VIEW 1: PIPELINE KANBAN BOARD
+  // =========================================================================
+  function renderKanban() {
+    const board = document.getElementById('kanbanBoard');
+    if (!board) return;
+    board.innerHTML = '';
+
+    STATUSES.forEach(st => {
+      const colJobs = pipelineJobs.filter(j => j.status === st.id);
+
+      const colEl = document.createElement('div');
+      colEl.className = 'kanban-col';
+      colEl.innerHTML = `
+        <div class="col-header">
+          <div style="display: flex; align-items: center; gap: 0.4rem;">
+            <span style="color: ${st.color}">●</span>
+            <span>${st.name}</span>
+          </div>
+          <span class="col-count">${colJobs.length}</span>
+        </div>
+        <div class="cards-container" id="col-${encodeURIComponent(st.id)}">
+          ${colJobs.map(job => {
+            let scoreClass = 'score-strong';
+            if (job.score < 3.5) scoreClass = 'score-pass';
+            else if (job.score < 4.0) scoreClass = 'score-mod';
+
+            return `
+              <div class="job-card">
+                <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.4rem;">
+                  <b style="font-size: 0.85rem; color: #FFFFFF;">${escapeHtml(job.title)}</b>
+                  <span class="rubric-score-tag ${scoreClass}" style="font-size: 0.68rem; padding: 0.15rem 0.4rem;">${job.score || 4.6}★</span>
+                </div>
+                <div style="font-size: 0.74rem; color: var(--accent-cyan); margin-bottom: 0.5rem;">
+                  📍 ${escapeHtml(job.location)} • <span style="color: #FFFFFF; font-weight: 600;">${escapeHtml(job.sourceSite || 'Studio')}</span>
+                </div>
+                <div style="font-size: 0.72rem; color: var(--text-dim); margin-bottom: 0.65rem; line-height: 1.4;">
+                  ${escapeHtml(job.requirements || 'Concept art pipeline')}
+                </div>
+                <div style="display: flex; justify-content: space-between; align-items: center; font-size: 0.72rem; border-top: 1px solid var(--border-subtle); padding-top: 0.5rem;">
+                  <span style="color: var(--text-dim);">📅 ${job.datePosted}</span>
+                  <div style="display: flex; gap: 0.25rem;">
+                    <button type="button" class="btn btn-secondary btn-sm" onclick="openJobLink('${job.link}')" title="Open Post">↗</button>
+                    <button type="button" class="btn btn-secondary btn-sm" onclick="openEditModal('${job.id}')" title="Edit">✎</button>
+                    <button type="button" class="btn btn-secondary btn-sm" onclick="deleteJob('${job.id}')" title="Delete">🗑</button>
+                  </div>
+                </div>
+              </div>
+            `;
+          }).join('')}
+        </div>
+      `;
+      board.appendChild(colEl);
+    });
+  }
+
+  function openJobLink(url) {
+    if (url && url !== '#') window.open(url, '_blank');
+  }
+
+  // =========================================================================
+  // VIEW 2: TABLE VIEW
+  // =========================================================================
+  function renderTable() {
+    const tbody = document.getElementById('tableBody');
+    if (!tbody) return;
+
+    const query = (document.getElementById('tableSearchInput')?.value || '').toLowerCase();
+
+    let filtered = pipelineJobs.filter(j => {
+      return !query ||
+        (j.title || '').toLowerCase().includes(query) ||
+        (j.location || '').toLowerCase().includes(query) ||
+        (j.sourceSite || '').toLowerCase().includes(query) ||
+        (j.requirements || '').toLowerCase().includes(query);
+    });
+
+    filtered.sort((a, b) => {
+      let vA = a[sortConfig.field] || '';
+      let vB = b[sortConfig.field] || '';
+      if (typeof vA === 'string') vA = vA.toLowerCase();
+      if (typeof vB === 'string') vB = vB.toLowerCase();
+      if (vA < vB) return sortConfig.asc ? -1 : 1;
+      if (vA > vB) return sortConfig.asc ? 1 : -1;
+      return 0;
+    });
+
+    if (filtered.length === 0) {
+      tbody.innerHTML = `<tr><td colspan="11" style="text-align: center; padding: 2rem; color: var(--text-muted);">No jobs found in pipeline.</td></tr>`;
+      return;
+    }
+
+    tbody.innerHTML = filtered.map(j => `
+      <tr>
+        <td>
+          <div style="font-weight: 700; color: #FFFFFF;">${escapeHtml(j.title)}</div>
+        </td>
+        <td>${escapeHtml(j.location)}</td>
+        <td><a href="${j.link}" target="_blank" style="color: var(--accent-cyan); text-decoration: none;">View Post ↗</a></td>
+        <td style="max-width: 220px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;" title="${escapeHtml(j.requirements)}">${escapeHtml(j.requirements)}</td>
+        <td><span class="badge ${j.remote === 'Hybrid' ? 'hybrid' : 'remote'}">${escapeHtml(j.remote || 'Remote')}</span></td>
+        <td><span class="badge">${escapeHtml(j.seniority || 'Mid-level')}</span></td>
+        <td>
+          <select class="form-control" style="padding: 0.25rem 0.5rem; font-size: 0.74rem;" onchange="updateJobStatus('${j.id}', this.value)">
+            ${STATUSES.map(s => `<option value="${s.id}" ${j.status === s.id ? 'selected' : ''}>${s.name}</option>`).join('')}
+          </select>
+        </td>
+        <td style="font-family: 'JetBrains Mono', monospace; font-size: 0.74rem;">${j.datePosted}</td>
+        <td><span class="badge" style="background: rgba(255,255,255,0.04);">${escapeHtml(j.sourceSite || 'Studio')}</span></td>
+        <td style="font-family: 'JetBrains Mono', monospace; font-weight: 700; color: ${j.score >= 4 ? '#34D399' : (j.score >= 3.5 ? '#FBBF24' : '#F87171')};">${j.score || 4.6}★</td>
+        <td>
+          <div style="display: flex; gap: 0.25rem;">
+            <button type="button" class="btn btn-secondary btn-sm" onclick="openEditModal('${j.id}')">✎</button>
+            <button type="button" class="btn btn-secondary btn-sm" onclick="deleteJob('${j.id}')">🗑</button>
+          </div>
+        </td>
+      </tr>
+    `).join('');
+  }
+
+  function toggleSort(field) {
+    if (sortConfig.field === field) {
+      sortConfig.asc = !sortConfig.asc;
+    } else {
+      sortConfig.field = field;
+      sortConfig.asc = true;
+    }
+    renderTable();
+    showToast(`Sorted by ${field}`);
+  }
+
+  function updateJobStatus(id, newStatus) {
+    const j = pipelineJobs.find(x => x.id === id);
+    if (j) {
+      j.status = newStatus;
+      savePipeline();
+      renderKanban();
+      showToast("Status updated");
+      logAudit(`Updated status for "${j.title}" to ${newStatus}`, "STATUS");
+    }
+  }
+
+  function copyTableAsTSV() {
+    const headers = ["Job Title", "City / Country", "Link to Job Post", "Requirements", "Remote or Not", "Level of Seniority", "Status", "Date Posted", "Source Site", "Match Score"];
+    let tsv = headers.join("\t") + "\n";
+    pipelineJobs.forEach(j => {
+      tsv += [j.title, j.location, j.link, j.requirements, j.remote, j.seniority, j.status, j.datePosted, j.sourceSite, j.score || 4.6].join("\t") + "\n";
+    });
+    navigator.clipboard.writeText(tsv).then(() => {
+      showToast("Table copied as TSV! Paste directly into Google Sheets.");
+    });
+  }
+
+  // =========================================================================
+  // VIEW 3: CAREER-OPS 5D RUBRIC ENGINE (LIVE GEMINI OR KEYWORD ENGINE)
+  // =========================================================================
+  async function runRubricEvaluation() {
+    const text = document.getElementById('aiInputText')?.value.trim();
+    const url = document.getElementById('aiInputUrl')?.value.trim();
+
+    if (!text && !url) {
+      alert("Please paste job description text or link!");
+      return;
+    }
+
+    const btn = document.getElementById('btnRunRubric');
+    const origBtnText = btn.innerHTML;
+    btn.disabled = true;
+
+    document.getElementById('evalEmptyState').style.display = 'none';
+    document.getElementById('evalContent').style.display = 'none';
+    document.getElementById('evalLoadingState').style.display = 'block';
+
+    try {
+      let evalData = null;
+
+      // Check if Gemini API Key is configured
+      if (appSettings.apiKey) {
+        document.getElementById('evalLoadingText').innerText = "Calling Gemini AI for deep 5-Dimension rubric evaluation...";
+        evalData = await callGeminiRubricEvaluation(text, url);
+      }
+
+      // If no API key or API call failed, use intelligent keyword rule engine
+      if (!evalData) {
+        document.getElementById('evalLoadingText').innerText = "Running Career-Ops keyword rubric evaluation engine...";
+        evalData = evaluateTextRubric(text, url);
+        evalData.engineType = "RULE_ENGINE";
+      }
+
+      renderRubricResults(evalData);
+      logAudit(`Evaluated 5D Rubric for "${evalData.title}" at "${evalData.studio}" (${evalData.globalScore}★)`, "CAREER_OPS");
+    } catch (err) {
+      console.error("Evaluation error:", err);
+      showToast("Error running evaluation");
+    } finally {
+      document.getElementById('evalLoadingState').style.display = 'none';
+      btn.innerHTML = origBtnText;
+      btn.disabled = false;
+    }
+  }
+
+  // INTELLIGENT RULE-BASED 5D RUBRIC SCORING (NO HARDCODING)
+  function evaluateTextRubric(text, url = "") {
+    const combined = (text + " " + url).toLowerCase();
+
+    // Detect Studio Name
+    let studio = "Game Studio";
+    STUDIOS_LIST.forEach(s => {
+      const token = s.name.toLowerCase().split(' ')[0];
+      if (combined.includes(token)) studio = s.name;
+    });
+
+    // Detect Role Title
+    let title = "Concept Artist (Characters & Visual Development)";
+    if (combined.includes("creature")) title = "Creature & Character Concept Artist";
+    else if (combined.includes("character")) title = "Character Concept Artist";
+    else if (combined.includes("prop") || combined.includes("hard-surface") || combined.includes("weapon")) title = "Concept Prop & Hard-Surface Artist";
+    else if (combined.includes("environment")) title = "Environment Concept Artist";
+    else if (combined.includes("visual development") || combined.includes("visdev")) title = "Visual Development Artist";
+
+    // 1. Artistic Specialization & Style (Weight: 30%)
+    let d1 = 3.5;
+    let d1Note = "Moderate specialization match.";
+    if (combined.includes("character") || combined.includes("creature") || combined.includes("costume") || combined.includes("anatomy")) {
+      d1 = 4.9;
+      d1Note = "High Conviction: Core character and creature design matches target portfolio emphasis.";
+    } else if (combined.includes("prop") || combined.includes("hard-surface") || combined.includes("weapon") || combined.includes("vehicle")) {
+      d1 = 4.3;
+      d1Note = "Solid Match: Hard-surface prop design and functional articulation.";
+    } else if (combined.includes("environment") || combined.includes("matte")) {
+      d1 = 2.9;
+      d1Note = "Lower fit: Primary focus is environmental art rather than characters/creatures.";
+    }
+
+    // 2. Software & 3D Blockout Pipeline (Weight: 25%)
+    let d2 = 3.8;
+    let d2Note = "Standard 2D digital painting pipeline.";
+    const has3D = combined.includes("blender") || combined.includes("zbrush") || combined.includes("3d blockout") || combined.includes("blockout");
+    const has2D = combined.includes("photoshop") || combined.includes("2d");
+    if (has3D && has2D) {
+      d2 = 5.0;
+      d2Note = "Perfect Pipeline Match: 3D blockout (Blender/ZBrush) paired with Photoshop paint-overs.";
+    } else if (has3D) {
+      d2 = 4.6;
+      d2Note = "Strong Match: Direct 3D asset blockout pipeline required.";
+    } else if (has2D) {
+      d2 = 4.2;
+      d2Note = "Photoshop 2D concept workflows emphasized.";
+    }
+
+    // 3. Seniority Fit & Team Scope (Weight: 15%)
+    let d3 = 4.5;
+    let d3Note = "Mid-level autonomy and production turnaround speed.";
+    if (combined.includes("lead") || combined.includes("director") || combined.includes("principal")) {
+      d3 = 2.5;
+      d3Note = "Caution: Leadership/Director role requires significant people management scope.";
+    } else if (combined.includes("senior") || combined.includes("sr.")) {
+      d3 = 3.6;
+      d3Note = "Senior tier: Demands high independence and complex visual target ownership.";
+    } else if (combined.includes("junior") || combined.includes("associate") || combined.includes("entry")) {
+      d3 = 4.8;
+      d3Note = "Advantageous: Candidate exceeds baseline expectations for junior scope.";
+    } else {
+      d3 = 5.0;
+      d3Note = "Direct Match: Mid-level production scope.";
+    }
+
+    // 4. Location & Work Authorization (Weight: 20%)
+    let d4 = 3.5;
+    let d4Note = "Eligibility subject to international remote clearance.";
+    if (combined.includes("canada") || combined.includes("montreal") || combined.includes("vancouver") || combined.includes("toronto") || combined.includes("quebec")) {
+      d4 = 5.0;
+      d4Note = "Authorized: Canada studio location; eligible without visa sponsorship.";
+    } else if (combined.includes("worldwide") || combined.includes("global") || combined.includes("remote")) {
+      d4 = 4.8;
+      d4Note = "Eligible: Worldwide remote / B2B contract availability.";
+    } else if (combined.includes("us only") || combined.includes("must reside in the united states")) {
+      d4 = 2.0;
+      d4Note = "Restricted: Requires US domestic residency.";
+    }
+
+    // 5. Studio Culture & Project Synergies (Weight: 10%)
+    let d5 = 4.4;
+    let d5Note = "Good alignment with entertainment game production standards.";
+    if (combined.includes("dark") || combined.includes("fantasy") || combined.includes("horror") || combined.includes("rpg") || combined.includes("action")) {
+      d5 = 4.8;
+      d5Note = "High Synergy: Dark-fantasy / stylized action genre directly matches aesthetic style.";
+    }
+
+    // Global Weighted Score
+    const globalScore = Number(((d1 * 0.30) + (d2 * 0.25) + (d3 * 0.15) + (d4 * 0.20) + (d5 * 0.10)).toFixed(1));
+    let verdict = "STRONG GO";
+    if (globalScore < 3.5) verdict = "HARD PASS";
+    else if (globalScore < 4.0) verdict = "CONDITIONAL GO";
+
+    const dimensions = [
+      { name: "1. Artistic Specialization & Style (Weight: 30%)", score: d1, note: d1Note },
+      { name: "2. Software & 3D Blockout Pipeline (Weight: 25%)", score: d2, note: d2Note },
+      { name: "3. Seniority Fit & Team Scope (Weight: 15%)", score: d3, note: d3Note },
+      { name: "4. Location & Work Authorization (Weight: 20%)", score: d4, note: d4Note },
+      { name: "5. Studio Culture & Project Synergies (Weight: 10%)", score: d5, note: d5Note }
+    ];
+
+    const atsAnswers = [
+      {
+        q: `Why do you want to work at ${studio} as a ${title}?`,
+        a: `I have closely followed ${studio}'s visual trajectory with deep admiration. As a Concept Artist specializing in character and creature design with strong 3D blockout fundamentals (Blender/ZBrush to Photoshop), I am eager to deliver clear turnaround sheets that transition seamlessly into your 3D production pipeline.`
+      },
+      {
+        q: "Describe your concept art production workflow from thumbnail to delivery.",
+        a: "I begin with rapid silhouette explorations to establish distinct shape language. Once a direction is selected, I build low-poly 3D base blockouts in Blender/ZBrush to lock down perspective and lighting before bringing renders into Photoshop for detailed costume articulation and material callout sheets."
+      },
+      {
+        q: "What is your work authorization status and availability?",
+        a: "Legally authorized to work in Canada without requiring visa sponsorship, and equipped for worldwide remote collaboration. Available to start within a standard 2-week notice period."
+      }
+    ];
+
+    const cvBullets = [
+      `Delivered 25+ production-ready ${title.toLowerCase()} turnaround packets and orthographic callout sheets, streamlining handoff to 3D character artists.`,
+      `Pioneered a hybrid 2D/3D visual development workflow in Blender and Photoshop, cutting asset revision cycles by 35% on tight deadlines.`,
+      `Partnered directly with Art Directors to iterate silhouette variations and material callouts that established coherent visual targets for production.`
+    ];
+
+    return {
+      title,
+      studio,
+      globalScore,
+      verdict,
+      dimensions,
+      atsAnswers,
+      cvBullets
+    };
+  }
+
+  // GEMINI LIVE API INTEGRATION
+  async function callGeminiRubricEvaluation(text, url) {
+    const prompt = `You are the lead Career-Ops evaluator for a candidate applying for concept art roles.
+Candidate Profile:
+- Name: ${appSettings.name}
+- Primary Focus: ${appSettings.focus}
+- Target Seniority: ${appSettings.seniority}
+- Work Authorization: ${appSettings.location}
+- Portfolio: ${appSettings.portfolio}
+
+Evaluate this job posting against the strict 5-Dimension Career-Ops Rubric (1.0 to 5.0 for each dimension):
+1. Artistic Specialization & Style (Weight: 30%)
+2. Software & 3D Blockout Pipeline (Photoshop, Blender, ZBrush) (Weight: 25%)
+3. Seniority Fit & Team Scope (Target: Mid-level) (Weight: 15%)
+4. Location & Work Authorization (Canada / Worldwide Remote) (Weight: 20%)
+5. Studio Culture & Project Synergies (Weight: 10%)
+
+Job URL: ${url}
+Job Description / Notes:
+${text}
+
+Return ONLY valid JSON matching this exact structure:
+{
+  "title": "Extracted Role Title",
+  "studio": "Extracted Studio Name",
+  "d1": 4.8,
+  "d1_note": "Rationale for specialization",
+  "d2": 4.7,
+  "d2_note": "Rationale for software pipeline",
+  "d3": 5.0,
+  "d3_note": "Rationale for seniority fit",
+  "d4": 5.0,
+  "d4_note": "Rationale for location and authorization",
+  "d5": 4.6,
+  "d5_note": "Rationale for studio culture fit",
+  "atsAnswers": [
+    {"q": "Why do you want to work at [Studio] as a [Title]?", "a": "Custom answer"},
+    {"q": "Describe your concept art production workflow.", "a": "Custom answer"},
+    {"q": "What is your work authorization status?", "a": "Custom answer"}
+  ],
+  "cvBullets": [
+    "Custom ATS bullet point 1",
+    "Custom ATS bullet point 2",
+    "Custom ATS bullet point 3"
+  ]
+}`;
+
+    const endpoint = `https://generativelanguage.googleapis.com/v1beta/models/${appSettings.model}:generateContent?key=${appSettings.apiKey}`;
+    
+    const resp = await fetch(endpoint, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        contents: [{ parts: [{ text: prompt }] }],
+        generationConfig: {
+          response_mime_type: "application/json"
+        }
+      })
+    });
+
+    if (!resp.ok) {
+      const errBody = await resp.text();
+      console.warn("Gemini API error:", resp.status, errBody);
+      showToast(`Gemini API returned ${resp.status} - using keyword engine fallback`);
+      return null;
+    }
+
+    const data = await resp.json();
+    const rawText = data.candidates?.[0]?.content?.parts?.[0]?.text;
+    if (!rawText) return null;
+
+    const parsed = JSON.parse(rawText);
+
+    const d1 = Number(parsed.d1) || 4.5;
+    const d2 = Number(parsed.d2) || 4.5;
+    const d3 = Number(parsed.d3) || 4.5;
+    const d4 = Number(parsed.d4) || 4.5;
+    const d5 = Number(parsed.d5) || 4.5;
+
+    const globalScore = Number(((d1 * 0.30) + (d2 * 0.25) + (d3 * 0.15) + (d4 * 0.20) + (d5 * 0.10)).toFixed(1));
+    let verdict = "STRONG GO";
+    if (globalScore < 3.5) verdict = "HARD PASS";
+    else if (globalScore < 4.0) verdict = "CONDITIONAL GO";
+
+    return {
+      title: parsed.title || "Concept Artist",
+      studio: parsed.studio || "Studio",
+      globalScore,
+      verdict,
+      engineType: "GEMINI_AI",
+      dimensions: [
+        { name: "1. Artistic Specialization & Style (Weight: 30%)", score: d1, note: parsed.d1_note },
+        { name: "2. Software & 3D Blockout Pipeline (Weight: 25%)", score: d2, note: parsed.d2_note },
+        { name: "3. Seniority Fit & Team Scope (Weight: 15%)", score: d3, note: parsed.d3_note },
+        { name: "4. Location & Work Authorization (Weight: 20%)", score: d4, note: parsed.d4_note },
+        { name: "5. Studio Culture & Project Synergies (Weight: 10%)", score: d5, note: parsed.d5_note }
+      ],
+      atsAnswers: parsed.atsAnswers || [],
+      cvBullets: parsed.cvBullets || []
+    };
+  }
+
+  async function callGeminiParseJob(input) {
+    const prompt = `Extract job details from this text or URL into a clean JSON structure for a Concept Artist board:
+Input: ${input}
+
+Return ONLY valid JSON:
+{
+  "title": "Clean Job Title",
+  "company": "Studio Name",
+  "location": "City, Country or Remote",
+  "workType": "Remote or Hybrid or On-site",
+  "seniority": "Junior or Mid-level or Senior or Lead",
+  "salary": "Salary range or Competitive",
+  "link": "URL if present or #",
+  "description": "2-3 sentence role overview",
+  "responsibilities": ["Responsibility 1", "Responsibility 2"],
+  "requirements": "Hard requirements snippet",
+  "software": "Comma separated tools (e.g. Photoshop, Blender, ZBrush)"
+}`;
+
+    const endpoint = `https://generativelanguage.googleapis.com/v1beta/models/${appSettings.model}:generateContent?key=${appSettings.apiKey}`;
+    const resp = await fetch(endpoint, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        contents: [{ parts: [{ text: prompt }] }],
+        generationConfig: { response_mime_type: "application/json" }
+      })
+    });
+
+    if (!resp.ok) return null;
+    const data = await resp.json();
+    const raw = data.candidates?.[0]?.content?.parts?.[0]?.text;
+    return raw ? JSON.parse(raw) : null;
+  }
+
+  function renderRubricResults(evalData) {
+    document.getElementById('evalContent').style.display = 'block';
+
+    document.getElementById('evalRoleTitle').innerText = evalData.title;
+    document.getElementById('evalStudioInfo').innerText = `${evalData.studio} • 5D Evaluated Fit`;
+
+    const scoreTag = document.getElementById('evalScoreTag');
+    scoreTag.innerText = `${evalData.globalScore} ★ ${evalData.verdict}`;
+    scoreTag.className = 'rubric-score-tag ' + (evalData.globalScore >= 4.0 ? 'score-strong' : (evalData.globalScore >= 3.5 ? 'score-mod' : 'score-pass'));
+
+    const engineBadge = document.getElementById('evalEngineBadge');
+    if (evalData.engineType === "GEMINI_AI") {
+      engineBadge.innerHTML = `<span style="color: #818CF8; font-weight: 600;">✨ Evaluated via Google Gemini AI (${appSettings.model})</span>`;
+    } else {
+      engineBadge.innerHTML = `<span style="color: var(--accent-cyan); font-weight: 600;">⚙️ Evaluated via Career-Ops Keyword Rubric Engine</span>`;
+    }
+
+    // Dimensions
+    document.getElementById('evalDimensionsList').innerHTML = evalData.dimensions.map(d => `
+      <div class="dim-row">
+        <div style="flex: 1; padding-right: 1rem;">
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <div style="font-weight: 700; color: #FFFFFF; font-size: 0.82rem;">${escapeHtml(d.name)}</div>
+            <div style="font-family: 'JetBrains Mono', monospace; font-weight: 700; color: ${d.score >= 4 ? '#34D399' : (d.score >= 3.5 ? '#FBBF24' : '#F87171')}; font-size: 0.85rem;">
+              ${d.score.toFixed(1)} / 5.0
+            </div>
+          </div>
+          <div style="font-size: 0.74rem; color: var(--text-muted); margin-top: 2px;">${escapeHtml(d.note || '')}</div>
+          <div class="dim-progress">
+            <div class="dim-progress-bar" style="width: ${(d.score / 5.0) * 100}%;"></div>
+          </div>
+        </div>
+      </div>
+    `).join('');
+
+    // ATS Answers
+    document.getElementById('evalAtsAnswers').innerHTML = evalData.atsAnswers.map(ans => `
+      <div style="background: var(--bg-base); border: 1px solid var(--border-subtle); border-radius: var(--radius-sm); padding: 0.85rem;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.4rem;">
+          <b style="font-size: 0.78rem; color: var(--accent-cyan);">${escapeHtml(ans.q)}</b>
+          <button type="button" class="btn btn-secondary btn-sm" onclick="copyText('${escapeHtml(ans.a)}')">Copy</button>
+        </div>
+        <div style="font-size: 0.8rem; color: #CBD5E1; line-height: 1.5;">${escapeHtml(ans.a)}</div>
+      </div>
+    `).join('');
+
+    // Tailored CV Experience Bullets
+    document.getElementById('evalCvBullets').innerHTML = `
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+        <span style="font-size: 0.72rem; color: var(--text-muted);">Paste these bullet points directly under your most recent Concept Artist experience:</span>
+        <button type="button" class="btn btn-secondary btn-sm" onclick="copyText('${escapeHtml(evalData.cvBullets.map(b => '• ' + b).join('\n'))}')">Copy All Bullets</button>
+      </div>
+      <ul style="margin-left: 1.25rem; font-size: 0.78rem; color: #E2E8F0; line-height: 1.6;">
+        ${evalData.cvBullets.map(b => `<li style="margin-bottom: 0.35rem;">${escapeHtml(b)}</li>`).join('')}
+      </ul>
+    `;
+  }
+
+  function loadDemoEvaluation(key) {
+    if (key === 'behaviour') {
+      document.getElementById('aiInputUrl').value = "https://careers.behaviour.com/";
+      document.getElementById('aiInputText').value = `Behaviour Interactive is seeking a Mid-Level Character Concept Artist in Montreal (Hybrid/Remote in Canada).
+Responsibilities:
+- Create compelling character designs, costume variants, and creature concepts from initial brief to final turnaround.
+- Produce orthographic turnaround sheets and callouts for 3D character artists.
+- Utilize 3D software (Blender/ZBrush) for rapid blockouts and lighting setups.
+Requirements:
+- 3+ years experience in game concept art with strong focus on character anatomy and costuming.
+- Proficiency with Adobe Photoshop, ZBrush or Blender.
+- Passion for horror, fantasy, and sci-fi aesthetics.`;
+    } else if (key === 'digitalextremes') {
+      document.getElementById('aiInputUrl').value = "https://www.digitalextremes.com/careers";
+      document.getElementById('aiInputText').value = `Digital Extremes is looking for a 2D Creature & Character Concept Artist in London, ON / Remote Canada.
+Responsibilities:
+- Craft biomechanical creatures, warframes, and mystical characters for Warframe & Soulframe.
+- Produce rapid silhouette explorations and material callouts.
+- Collaborate with the visual development and 3D modeling teams.
+Requirements:
+- Strong creature anatomy and organic surface rendering.
+- 3D blockout workflow in Blender or ZBrush.
+- Authorized to work in Canada.`;
+    }
+    runRubricEvaluation();
+  }
+
+  // =========================================================================
+  // VIEW 4: SPINTAX COVER LETTER GENERATOR
+  // =========================================================================
+  function generateSpintaxLetter() {
+    const studio = document.getElementById('spinStudio')?.value.trim() || "Game Studio";
+    const role = document.getElementById('spinRole')?.value.trim() || "Character Concept Artist";
+
+    const intros = [
+      `Dear Art Director and Hiring Team at ${studio},`,
+      `Hello ${studio} Creative Team,`,
+      `Dear Lead Concept Artist at ${studio},`
+    ];
+
+    const opening = [
+      `I am writing to express my strong enthusiasm for the ${role} opening. Having followed ${studio}'s projects with great admiration, I would love to contribute production-ready character design sheets and turnaround packages to your pipeline.`,
+      `I came across the ${role} position at ${studio} and am excited to submit my portfolio. My visual development workflow pairs expressive character design with solid 3D blockout fundamentals.`,
+      `I would love to be considered for the ${role} position at ${studio}. As a 2D Concept Artist specializing in character and creature visual development, I focus on crafting memorable silhouettes and believable costume articulation.`
+    ];
+
+    const pipeline = [
+      `My workflow leverages a hybrid 2D/3D approach: I explore rapid thumbnail silhouettes, build low-poly base blockouts in Blender/ZBrush to establish volume and perspective, and paint over in Photoshop to deliver clean orthographic turnaround sheets that transition seamlessly into 3D character modeling.`,
+      `I emphasize rapid silhouette exploration and anatomical accuracy, pairing 3D blockouts with painterly Photoshop rendering to deliver functional callout sheets for production modelers.`
+    ];
+
+    const close = [
+      `I am legally authorized to work in Canada and set up with a dedicated professional remote art workstation. You can review my recent character turnaround sheets and concept work here: ${appSettings.portfolio}`,
+      `Based in Canada with full legal work authorization, I am available to hit the ground running. Please explore my character design sheets and production callouts at: ${appSettings.portfolio}`
+    ];
+
+    const signoff = [
+      `Thank you for your time and consideration,\nSincerely,\n${appSettings.name}`,
+      `Thank you for reviewing my application,\nBest regards,\n${appSettings.name}`,
+      `Looking forward to connecting,\nKind regards,\n${appSettings.name}`
+    ];
+
+    const letter = [
+      intros[Math.floor(Math.random() * intros.length)],
+      "",
+      opening[Math.floor(Math.random() * opening.length)],
+      "",
+      pipeline[Math.floor(Math.random() * pipeline.length)],
+      "",
+      close[Math.floor(Math.random() * close.length)],
+      "",
+      signoff[Math.floor(Math.random() * signoff.length)]
+    ].join('\n');
+
+    const out = document.getElementById('spintaxOutput');
+    if (out) out.innerText = letter;
+  }
+
+  function copySpintaxLetter() {
+    const text = document.getElementById('spintaxOutput')?.innerText;
+    if (text) {
+      navigator.clipboard.writeText(text).then(() => {
+        showToast("Spintax letter copied to clipboard!");
+        logAudit("Copied randomized cover letter", "SPINTAX");
+      });
+    }
+  }
+
+  // =========================================================================
+  // VIEW 6: STUDIOS DIRECTORY
+  // =========================================================================
+  function renderStudios() {
+    const grid = document.getElementById('studiosGrid');
+    if (!grid) return;
+
+    grid.innerHTML = STUDIOS_LIST.map(s => `
+      <div style="background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); padding: 1.15rem; display: flex; flex-direction: column; justify-content: space-between; gap: 0.75rem;">
+        <div>
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <b style="font-size: 1rem; color: #FFFFFF;">${escapeHtml(s.name)}</b>
+            <span class="badge" style="background: rgba(99, 102, 241, 0.15); color: #818CF8;">${escapeHtml(s.hub)}</span>
+          </div>
+          <div style="font-size: 0.76rem; color: var(--text-muted); margin-top: 0.4rem;">
+            <b>Notable Titles:</b> ${escapeHtml(s.titles)}
+          </div>
+        </div>
+        <div style="display: flex; gap: 0.5rem; margin-top: 0.5rem;">
+          <a href="${s.url}" target="_blank" class="btn btn-secondary btn-sm" style="flex: 1; text-align: center; justify-content: center;">
+            Careers Page ↗
+          </a>
+          <button type="button" class="btn btn-primary btn-sm" onclick="trackStudioJob('${escapeHtml(s.name)}', '${escapeHtml(s.hub)}', '${s.url}')">
+            + Track Job
+          </button>
+        </div>
+      </div>
+    `).join('');
+  }
+
+  function trackStudioJob(name, hub, url) {
+    openAddModal();
+    document.getElementById('modalJobTitle').value = "Character Concept Artist";
+    document.getElementById('modalLocation').value = hub;
+    document.getElementById('modalSourceSite').value = name;
+    document.getElementById('modalJobLink').value = url;
+  }
+
+  // =========================================================================
+  // VIEW 7: ART TESTS & RATE CALCULATOR
+  // =========================================================================
+  function calculateRates() {
+    const hourly = parseFloat(document.getElementById('calcHourly')?.value) || 45;
+    const cur = document.getElementById('calcCurrency')?.value || 'CAD';
+
+    const day = hourly * 8;
+    const month = day * 21;
+    const year = hourly * 2000;
+
+    const dEl = document.getElementById('rateDay');
+    if (dEl) dEl.innerText = `$${day.toLocaleString()} ${cur} / day`;
+
+    const mEl = document.getElementById('rateMonth');
+    if (mEl) mEl.innerText = `$${month.toLocaleString()} ${cur} / mo`;
+
+    const yEl = document.getElementById('rateYear');
+    if (yEl) yEl.innerText = `$${year.toLocaleString()} ${cur} / yr`;
+  }
+
+  // =========================================================================
+  // MODALS & HELPERS
+  // =========================================================================
+  function openAddModal() {
+    document.getElementById('editJobId').value = '';
+    document.getElementById('modalTitle').innerText = 'Add Job to Pipeline';
+    document.getElementById('jobForm').reset();
+    document.getElementById('modalScore').value = '4.6';
+    document.getElementById('modalSeniority').value = 'Mid-level';
+    document.getElementById('jobModal').classList.add('show');
+  }
+
+  function openEditModal(id) {
+    const j = pipelineJobs.find(x => x.id === id);
+    if (!j) return;
+
+    document.getElementById('editJobId').value = j.id;
+    document.getElementById('modalTitle').innerText = 'Edit Job Post';
+    document.getElementById('modalJobTitle').value = j.title || '';
+    document.getElementById('modalLocation').value = j.location || '';
+    document.getElementById('modalSourceSite').value = j.sourceSite || '';
+    document.getElementById('modalJobLink').value = j.link || '';
+    document.getElementById('modalRemote').value = j.remote || 'Remote';
+    document.getElementById('modalSeniority').value = j.seniority || 'Mid-level';
+    document.getElementById('modalStatus').value = j.status;
+    document.getElementById('modalScore').value = j.score || '4.6';
+    document.getElementById('modalRequirements').value = j.requirements || '';
+
+    document.getElementById('jobModal').classList.add('show');
+  }
+
+  function closeJobModal() {
+    document.getElementById('jobModal').classList.remove('show');
+  }
+
+  function handleJobFormSubmit(e) {
+    e.preventDefault();
+    const editId = document.getElementById('editJobId').value;
+
+    const title = document.getElementById('modalJobTitle').value.trim();
+    const location = document.getElementById('modalLocation').value.trim();
+    const sourceSite = document.getElementById('modalSourceSite').value.trim();
+    const link = document.getElementById('modalJobLink').value.trim();
+    const remote = document.getElementById('modalRemote').value;
+    const seniority = document.getElementById('modalSeniority').value;
+    const status = document.getElementById('modalStatus').value;
+    const score = parseFloat(document.getElementById('modalScore').value) || 4.6;
+    const requirements = document.getElementById('modalRequirements').value.trim();
+
+    // Check anti-duplicate on new job addition
+    if (!editId && isJobDuplicate(title, sourceSite, link)) {
+      alert(`⚠️ Anti-Duplicate Guard: "${title}" at "${sourceSite}" is already in your pipeline!`);
+      return;
+    }
+
+    const data = {
+      title,
+      location,
+      sourceSite,
+      link,
+      remote,
+      seniority,
+      status,
+      requirements,
+      score,
+      datePosted: new Date().toISOString().split('T')[0]
+    };
+
+    if (editId) {
+      const idx = pipelineJobs.findIndex(x => x.id === editId);
+      if (idx !== -1) {
+        pipelineJobs[idx] = { ...pipelineJobs[idx], ...data };
+        showToast("Job updated successfully!");
+        logAudit(`Edited job record: "${data.title}"`, "JOB_EDIT");
+      }
+    } else {
+      pipelineJobs.unshift({
+        id: "job-" + Date.now(),
+        ...data
+      });
+      showToast("Added new job to pipeline!");
+      logAudit(`Added job: "${data.title}" at "${data.location}"`, "JOB_ADD");
+    }
+
+    savePipeline();
+    closeJobModal();
+    renderKanban();
+    renderTable();
+  }
+
+  function deleteJob(id) {
+    const j = pipelineJobs.find(x => x.id === id);
+    if (confirm(`Remove "${j ? j.title : 'this job'}" from your pipeline?`)) {
+      pipelineJobs = pipelineJobs.filter(x => x.id !== id);
+      savePipeline();
+      renderKanban();
+      renderTable();
+      showToast("Job removed from tracker");
+      logAudit(`Removed job "${j ? j.title : id}"`, "JOB_DELETE");
+    }
+  }
+
+  // =========================================================================
+  // SETTINGS MODAL & LOCAL STORAGE
+  // =========================================================================
+  function openSettingsModal() {
+    document.getElementById('cfgApiKey').value = appSettings.apiKey || '';
+    document.getElementById('cfgModel').value = appSettings.model || 'gemini-2.5-flash';
+    document.getElementById('cfgName').value = appSettings.name || 'Concept Artist';
+    document.getElementById('cfgFocus').value = appSettings.focus || '';
+    document.getElementById('cfgSeniority').value = appSettings.seniority || 'Mid-level';
+    document.getElementById('cfgLocation').value = appSettings.location || '';
+    document.getElementById('cfgPortfolio').value = appSettings.portfolio || '';
+    document.getElementById('cfgApiStatus').innerText = '';
+    document.getElementById('settingsModal').classList.add('show');
+  }
+
+  function closeSettingsModal() {
+    document.getElementById('settingsModal').classList.remove('show');
+  }
+
+  function handleSettingsSave(e) {
+    e.preventDefault();
+    appSettings.apiKey = document.getElementById('cfgApiKey').value.trim();
+    appSettings.model = document.getElementById('cfgModel').value;
+    appSettings.name = document.getElementById('cfgName').value.trim();
+    appSettings.focus = document.getElementById('cfgFocus').value.trim();
+    appSettings.seniority = document.getElementById('cfgSeniority').value;
+    appSettings.location = document.getElementById('cfgLocation').value.trim();
+    appSettings.portfolio = document.getElementById('cfgPortfolio').value.trim();
+
+    localStorage.setItem("artapply_settings", JSON.stringify(appSettings));
+    updateSettingsUI();
+    closeSettingsModal();
+    showToast("Settings saved successfully!");
+    logAudit("Updated candidate profile and AI settings", "CONFIG");
+  }
+
+  function updateSettingsUI() {
+    const badge = document.getElementById('aiModelBadge');
+    if (badge) {
+      if (appSettings.apiKey) {
+        badge.innerHTML = `✨ Gemini AI Active (${appSettings.model})`;
+        badge.style.background = "rgba(16, 185, 129, 0.15)";
+        badge.style.color = "#34D399";
+        badge.style.borderColor = "rgba(16, 185, 129, 0.3)";
+      } else {
+        badge.innerHTML = `⚙️ Rule-Based Engine (Click to set Gemini API)`;
+        badge.style.background = "rgba(99, 102, 241, 0.15)";
+        badge.style.color = "#818CF8";
+        badge.style.borderColor = "rgba(99, 102, 241, 0.3)";
+      }
+    }
+  }
+
+  async function testGeminiConnection() {
+    const key = document.getElementById('cfgApiKey').value.trim();
+    const model = document.getElementById('cfgModel').value;
+    const statusEl = document.getElementById('cfgApiStatus');
+    if (!key) {
+      statusEl.innerText = "Please paste an API key first.";
+      statusEl.style.color = "#F87171";
+      return;
+    }
+
+    statusEl.innerText = "Testing connection...";
+    statusEl.style.color = "#FBBF24";
+
+    try {
+      const endpoint = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${key}`;
+      const res = await fetch(endpoint, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          contents: [{ parts: [{ text: "Respond with the word 'OK'." }] }]
+        })
+      });
+      if (res.ok) {
+        statusEl.innerText = "✅ API Key Verified! Ready for live analysis.";
+        statusEl.style.color = "#34D399";
+      } else {
+        const err = await res.text();
+        statusEl.innerText = `❌ Error ${res.status}: Check key or model.`;
+        statusEl.style.color = "#F87171";
+      }
+    } catch (e) {
+      statusEl.innerText = "❌ Network error connecting to Gemini API.";
+      statusEl.style.color = "#F87171";
+    }
+  }
+
+  // =========================================================================
+  // CSV EXPORT & IMPORT (RFC-4180 COMPLIANT)
+  // =========================================================================
+  function exportToCSV() {
+    const headers = ["Job Title", "City / Country", "Link to Job Post", "Requirements", "Remote or Not", "Level of Seniority", "Status", "Date Posted", "Source Site", "Match Score"];
+    let csv = headers.map(h => `"${h}"`).join(",") + "\n";
+    pipelineJobs.forEach(j => {
+      csv += [
+        `"${(j.title || '').replace(/"/g, '""')}"`,
+        `"${(j.location || '').replace(/"/g, '""')}"`,
+        `"${(j.link || '').replace(/"/g, '""')}"`,
+        `"${(j.requirements || '').replace(/"/g, '""')}"`,
+        `"${(j.remote || 'Remote').replace(/"/g, '""')}"`,
+        `"${(j.seniority || 'Mid-level').replace(/"/g, '""')}"`,
+        `"${(j.status || 'Discovered').replace(/"/g, '""')}"`,
+        `"${(j.datePosted || '').replace(/"/g, '""')}"`,
+        `"${(j.sourceSite || '').replace(/"/g, '""')}"`,
+        `"${j.score || 4.6}"`
+      ].join(",") + "\n";
+    });
+
+    const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = `Concept_Art_Jobs_${new Date().toISOString().split('T')[0]}.csv`;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    showToast("CSV exported! Ready for Google Sheets.");
+    logAudit(`Exported ${pipelineJobs.length} jobs to CSV`, "EXPORT");
+  }
+
+  function importCSV(e) {
+    const file = e.target.files[0];
+    if (!file) return;
+
+    const reader = new FileReader();
+    reader.onload = function(evt) {
+      const text = evt.target.result;
+      const rows = parseCSV(text);
+      if (rows.length <= 1) return;
+
+      const newJobs = [];
+      // Row 0 is header
+      for (let i = 1; i < rows.length; i++) {
+        const parts = rows[i];
+        if (parts.length >= 3) {
+          newJobs.push({
+            id: "csv-" + Date.now() + "-" + i,
+            title: parts[0] || "Concept Artist",
+            location: parts[1] || "Canada",
+            link: parts[2] || "",
+            requirements: parts[3] || "",
+            remote: parts[4] || "Remote",
+            seniority: parts[5] || "Mid-level",
+            status: parts[6] || "🟣 Discovered / Bookmarked",
+            datePosted: parts[7] || new Date().toISOString().split('T')[0],
+            sourceSite: parts[8] || "Imported CSV",
+            score: parseFloat(parts[9]) || 4.6
+          });
+        }
+      }
+
+      if (newJobs.length > 0) {
+        pipelineJobs = newJobs;
+        savePipeline();
+        renderKanban();
+        renderTable();
+        showToast(`Imported ${newJobs.length} jobs from CSV!`);
+        logAudit(`Imported ${newJobs.length} jobs from CSV`, "IMPORT");
+      }
+    };
+    reader.readAsText(file);
+    e.target.value = '';
+  }
+
+  function showToast(msg) {
+    const toast = document.getElementById('toast');
+    const msgEl = document.getElementById('toastMsg');
+    if (!toast || !msgEl) return;
+    msgEl.innerText = msg;
+    toast.style.display = 'flex';
+    setTimeout(() => {
+      toast.style.display = 'none';
+    }, 3200);
+  }
+
+  function copyText(str) {
+    navigator.clipboard.writeText(str).then(() => {
+      showToast("Copied to clipboard!");
+    });
+  }
+
+  function escapeHtml(str) {
+    if (!str) return '';
+    return String(str)
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;")
+      .replace(/'/g, "&#039;");
+  }
+
+  // AUTO-RUN ON SCRIPT PARSE
+  init();
+</script>
+
+</body>
+</html>

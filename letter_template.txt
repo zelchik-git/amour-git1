@@ -1,0 +1,12 @@
+{Dear|Hello|Hi} {Hiring Team|Art Director|Lead Concept Artist} at {company},
+
+{I am excited to apply for the|I came across your opening for the|I am writing to express my strong enthusiasm for the} {role} position. {As a Concept Artist specializing in character and creature visual development|Having focused my work on character and creature design with hard-surface prop fundamentals}, I have been following {company}'s projects with great admiration.
+
+My workflow emphasizes {rapid silhouette exploration and anatomical accuracy|expressive costume design, distinct silhouettes, and believable anatomy}, leveraging {Photoshop and 3D blockout workflows (Blender / ZBrush)|a 2D/3D hybrid pipeline} to deliver production-ready callout sheets and turnarounds that {transition smoothly to 3D character modelers|facilitate fast iteration for the game production team}.
+
+{I am authorized to work in Canada and fully equipped for remote collaboration|Being authorized to work in Canada with a dedicated remote studio setup}, I am ready to hit the ground running. You can review my character turnaround sheets and concept work here: {portfolio}.
+
+{Thank you for your time and consideration|Thank you for reviewing my application|I would welcome the opportunity to discuss how my skill set aligns with your team's visual targets}.
+
+{Best regards|Sincerely|Kind regards},
+{name}
